@@ -1,0 +1,42 @@
+# An array is monotonic if it is either monotone increasing or monotone decreasing.
+
+# An array A is monotone increasing if for all i <= j, A[i] <= A[j].  An array A is monotone decreasing if for all i <= j, A[i] >= A[j].
+
+# Return true if and only if the given array A is monotonic.
+
+# Using 2 pass O(N)
+class Solution {
+    public boolean isMonotonic(int[] A) {
+        return increasing(A) || decreasing(A);
+    }
+
+    public boolean increasing(int[] A) {
+        for (int i = 0; i < A.length - 1; ++i)
+            if (A[i] > A[i+1]) return false;
+        return true;
+    }
+
+    public boolean decreasing(int[] A) {
+        for (int i = 0; i < A.length - 1; ++i)
+            if (A[i] < A[i+1]) return false;
+        return true;
+    }
+}
+
+# Using 1 pass O(N)
+# try to keep track for both order during the same iteration
+
+class Solution {
+    public boolean isMonotonic(int[] A) {
+        boolean increasing = true;
+        boolean decreasing = true;
+        for(int i = 1; i < A.length; i++) {
+            if(!increasing && !decreasing) 
+                return false;
+            increasing = increasing && A[i] >= A[i-1];
+            decreasing = decreasing && A[i] <= A[i-1]; 
+        }
+        return increasing || decreasing;
+    }
+}
+
