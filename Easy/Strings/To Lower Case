@@ -1,0 +1,23 @@
+# implement function ToLowerCase() that has a string parameter str, and returns the same string in lowercase.
+
+# My Note: char >= 'A' && char <= 'Z' is same as char >= 65 && char <= 90. i.e using the actual ascii value
+
+class Solution {
+    public String toLowerCase(String str) {
+        char[] lower = {'a', 'b', 'c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+        StringBuffer res = new StringBuffer();
+        for(int i = 0; i < str.length(); i++) {
+            int cur = str.charAt(i);
+            // if it's an upper case letter replace it with the lower case letter
+            // else append the character as is
+            if(cur >= 'A' && cur <= 'Z') {
+                int index = cur - 'A';
+                res.append(lower[index]);
+            } else {
+                res.append(str.charAt(i));
+            }
+        }
+        return res.toString();
+    }
+}
+
