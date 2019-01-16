@@ -2,4 +2,8 @@
   - Character.isLetter(char)
   - (char <= 'a' && char >= 'z') || (char <= 'A' && char >= 'Z')
   
+# Get a hang of String manipulation functions
+  - string.split("\\s");
+  - string.substring(1) OR string.substring(2,8)
+  
  
