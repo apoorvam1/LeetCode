@@ -1,0 +1,5 @@
+# Check if a letter is a character
+  - Character.isLetter(char)
+  - (char <= 'a' && char >= 'z') || (char <= 'A' && char >= 'Z')
+  
+ 
