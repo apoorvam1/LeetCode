@@ -1,0 +1,38 @@
+# Given a string S, return the "reversed" string where all characters that are not a letter stay in the same place, and all 
+# letters reverse their positions.
+
+Example:
+Input: "a-bC-dEf1ghIj"
+Output: "j-Ih-gfE1dCba"
+
+# My Notes: Start with the same logic as regular reverse, i.e with 2 pointers. Swap only if both the pointers are pointing to # letters
+
+# Character.isLetter(char) comes in handy
+
+class Solution {
+    public String reverseOnlyLetters(String S) {
+        if(S == null) return null;
+        char[] charr = S.toCharArray();
+        int left = 0;
+        int right = charr.length-1;
+        
+        while(left <= right) {
+            if(Character.isLetter(charr[left]) && Character.isLetter(charr[right])) {
+                // swap
+                char temp = charr[left];
+                charr[left] = charr[right];
+                charr[right] = temp;
+                left++;
+                right--;
+            } else {
+                if(!Character.isLetter(charr[left])) {
+                    left++;
+                }
+                if(!Character.isLetter(charr[right])) {
+                    right--;
+                }
+            }
+        }
+        return new String(charr);
+    }
+}
