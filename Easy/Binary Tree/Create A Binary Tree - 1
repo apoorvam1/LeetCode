@@ -1,0 +1,33 @@
+# In a Binary Tree each node has at most 2 children and a value of it's own. 
+# Each tree has a root node
+
+Class Node {
+  int key;
+  Node left;
+  Node right;
+  
+  public Node(int key) {
+    this.key = key;
+    left = right = null;
+  }
+}
+
+Class Binarytree {
+  Node root;
+  
+  public Binarytree(int key) {
+    this.root = new Node(key);
+  }
+  
+  public BinaryTree() {
+    this.root = null;
+  }
+  
+  public static void main(String[] args) {
+    BinaryTree tree = new BinaryTree(5);
+    
+    tree.left = new Node(3);
+    tree.right = new Node(6);
+    tree.left.left = new Node(1);
+  }
+}
