@@ -1,20 +1,23 @@
 # In a Binary Tree each node has at most 2 children and a value of it's own. 
 # Each tree has a root node
 
-Class Node {
-  int key;
-  Node left;
-  Node right;
-  
-  public Node(int key) {
-    this.key = key;
-    left = right = null;
-  }
-}
 
 Class Binarytree {
-  Node root;
+  static Class Node {
+    int key;
+    Node left;
+    Node right;
+
+    public Node(int key) {
+      this.key = key;
+      left = right = null;
+    }
+  }
   
+  static Node root;
+  // A temp variable to be used in manipulating tree as the reference to root should not be changed
+  static Node temp = root;
+
   public Binarytree(int key) {
     this.root = new Node(key);
   }
@@ -23,11 +26,44 @@ Class Binarytree {
     this.root = null;
   }
   
+  /****
+  * Insert into the tree *
+  ****/
+  public void insert(Node temp, int key) {
+    Queue<Node> queue = new Queue<>();
+    queue.add(temp);
+    
+    while(!queue.isEmpty()) {
+      temp = queue.peek();
+      queue.remove();
+      
+      if(temp.left != null) {
+         temp.left = new Node(key);
+         return;
+      } else {
+        queue.add(temp.left);
+      }
+      
+      if(temp.right != null) {
+        temp.right = new Node(key);
+        return;
+      } else {
+        queue.add(temp.right);
+      }
+      
+      
+    }
+  }
+  
   public static void main(String[] args) {
     BinaryTree tree = new BinaryTree(5);
+    tree.left = new Node(11); 
+    tree.left.left = new Node(7); 
+    tree.right = new Node(9); 
+    tree.right.left = new Node(15); 
+    tree.right.right = new Node(8)
+
+    tree.insert(12);
     
-    tree.left = new Node(3);
-    tree.right = new Node(6);
-    tree.left.left = new Node(1);
   }
 }
