@@ -1,0 +1,44 @@
+# Given two arrays, write a function to compute their intersection.
+
+# Example 1:
+# Input: nums1 = [1,2,2,1], nums2 = [2,2]
+# Output: [2]
+
+# Example 2:
+# Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+# Output: [9,4]
+
+# Note:
+# Each element in the result must be unique.
+# The result can be in any order.
+
+class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+        // remove duplicates from both set
+        HashSet<Integer> numsSet1 = getSet(nums1);
+        HashSet<Integer> numsSet2 = getSet(nums2);
+        
+        int[] res = new int[numsSet1.size() + numsSet2.size()];
+        int counter = 0;
+        // if any of the aeeay is empty return empty array 
+        if(numsSet1.size() == 0 || numsSet2.size() == 0) return new int[0];
+        
+        // add one set to another and find duplicates
+        for(Integer val : numsSet1) {
+            if(numsSet2.add(val) == false) {
+                res[counter++] = val;
+            }
+        }
+        
+        // return array range with only duplicate values
+        return Arrays.copyOfRange(res, 0, counter);
+    }
+    
+    private static HashSet<Integer> getSet(int[] a) {
+        HashSet<Integer> res = new HashSet<>();
+        for(int val : a) {
+            res.add(val);
+        }
+        return res;
+    }
+}
