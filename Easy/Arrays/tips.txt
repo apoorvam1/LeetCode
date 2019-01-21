@@ -1,0 +1,2 @@
+1.  Extract part of the array
+    Arrays.copyOfRange(res, startIndex(inclusive), endIndex(inclusive));
