@@ -50,9 +50,71 @@ Class Binarytree {
       } else {
         queue.add(temp.right);
       }
-      
-      
     }
+  }
+  
+  /****
+  * Delete Node from tree 
+  * Find the node to be deleted, Find the last node of the tree
+  * Keep the data of the last node and make that last node null
+  * Put the saved data into the node to be deleted
+  ****/
+  
+  public void delete(Node root, int key) {
+      Queue<Node> queue = new Queue<>();
+      queue.add(root); 
+      Node toBeDeleted;
+      
+      while(!queue.isEmpty()) {
+          temp = queue.peek();
+          queue.remove();
+          
+          if(temp.key == key) {
+              toBeDeleted = temp;
+          }
+                    
+          if(temp.left != null) {
+             queue.add(temp.left);
+          }
+          
+          // rightmost node should the last one to be popped out
+          if(temp.right != null) {
+              queue.add(temp.right);
+          }
+      }
+      
+      // temp holds the last node
+      int lastNodeVal = temp.val;
+      deleteLastNode(root, lastNodeVal);
+      toBeDeleted.key = lastNodeVal;
+  }
+  
+  public void deleteLastNode(Node root, int lastNodeVal) {
+      Queue<Node> queue = new Queue<>();
+      queue.add(root);
+      
+      while(!queue.isEmpty()) {
+          temp = queue.peek();
+          queue.remove();
+          
+          if(temp.left != null) {
+            if(temp.right.key == lastNodeVal) {
+                  temp.left = null;
+                  return;
+            } else {
+                queue.add(temp.left);
+            }
+          }
+          
+          if(temp.right != null) {
+              if(temp.right.key == lastNodeVal) {
+                  temp.right = null;
+                  return;
+              } else {
+                  queue.add(temp.right);
+              }
+          } 
+      }
   }
   
   public static void main(String[] args) {
