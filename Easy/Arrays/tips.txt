@@ -1,2 +1,4 @@
 1.  Extract part of the array
     Arrays.copyOfRange(res, startIndex(inclusive), endIndex(inclusive));
+    
+2.  When working with arrays containing negative numbers check if Math.abs(val) helps simplify the problem
