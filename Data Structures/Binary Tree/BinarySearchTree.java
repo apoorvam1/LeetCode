@@ -149,6 +149,19 @@ public class BinarySearchTree {
         }
     }
 
+    
+    public int getSize() {
+        return getSizeRecursive(root);
+    }
+
+    /*
+     * if current is null size is 0
+     * else return the (sum of nodes is left sub tree + 1 (the current node) + sum of nodes in right sub tree)
+     */
+    private int getSizeRecursive(Node current) {
+        return (current == null) ? 0 : getSizeRecursive(current.left) + 1 + getSizeRecursive(current.right);
+    }
+    
     private BinarySearchTree createBinarySearchTree() {
         BinarySearchTree bst = new BinarySearchTree();
         bst.add(6);
