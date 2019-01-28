@@ -1,0 +1,59 @@
+# Given a binary tree, return the level order traversal of its nodes' values. (ie, from left to right, level by level).
+
+# For example:
+# Given binary tree [3,9,20,null,null,15,7],
+#    3
+#   / \
+#  9  20
+#    /  \
+#   15   7
+# return its level order traversal as:
+# [
+#   [3],
+#   [9,20],
+#   [15,7]
+# ]
+
+# Iterative solution
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> result = new LinkedList<>();
+        if(root == null)
+            return result;
+        Queue<TreeNode> queue = new LinkedList<>();
+        Queue<TreeNode> nextQueue = new LinkedList<>();
+        List<Integer> level = new LinkedList<>();
+        queue.add(root);
+        
+        while(!queue.isEmpty()) {
+            TreeNode current = queue.remove();
+            level.add(current.val);
+            
+            // while iterating over current level nodes, add all the children to a new list
+            if(current.left != null) {
+                nextQueue.add(current.left);
+            }
+            if(current.right != null) {
+                nextQueue.add(current.right);
+            }
+            
+            // if current level is empty, take the next level elements and repeat
+            if(queue.isEmpty()) {
+                queue = new LinkedList<>(nextQueue);
+                result.add(level);
+                level = new LinkedList<>();
+                nextQueue = new LinkedList<>();
+            }
+        }
+        return result;
+    }
+}
