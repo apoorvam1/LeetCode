@@ -105,7 +105,34 @@ public class BinarySearchTree {
             inOderTraversal(node.right);
         }
     }
-
+    
+    /*
+     * Depth First Search With Stack
+     * Iterative In Order traversal
+     */
+    public void inOrderTraversalIterative(Node node) {
+        if(node == null)
+            return;
+        Stack<Node> s = new Stack<>();
+        Node cur = node;
+        
+        // As it's depth first search traversal, travel deep into the tree in in-order
+        whie(cur != null || !s.isEmpty()) {
+            
+            // traverse left sub tree
+            while(cur != null) {
+                s.push(cur);
+                cur = cur.left;
+            }
+            
+            // print current node
+            cur = s.pop();
+            System.out.println(cur.val);
+            
+            // traverse right sub tree
+            cur = cur.right;
+        }
+    }
     /*
      * Depth First Search
      * Pre Order traversal
