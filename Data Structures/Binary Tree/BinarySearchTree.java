@@ -176,7 +176,9 @@ public class BinarySearchTree {
         }
     }
 
-    
+    /*
+     * Get the numbers of nodes in a tree
+     */
     public int getSize() {
         return getSizeRecursive(root);
     }
@@ -187,6 +189,41 @@ public class BinarySearchTree {
      */
     private int getSizeRecursive(Node current) {
         return (current == null) ? 0 : getSizeRecursive(current.left) + 1 + getSizeRecursive(current.right);
+    }
+    
+    public int getDepth() {
+        return getDepthRecursiveTopToBottom(root, 0, 0);  
+    }
+    
+    /*
+     *  Get the maximum depth/height of a tree top-down approach
+     *  Handle base case
+     *  Recalculate return value on condition
+     *  Calculate the result recursive on left sub tree & right sub tree
+     */
+    private int getDepthRecursiveTopToBottom(Node current, int depth, int maxDepth) {
+        if(current == null)
+            return maxDepth;
+        if(current.left == null && current.right == null) {
+            maxDepth = Math.max(depth, maxDepth);   
+        }
+        getDepthRecursiveTopToBottom(current.left, depth+1);
+        getDepthRecursiveTopToBottom(current.right, depth+1);
+    }
+    
+    /*
+     * Get the maximum depth/height of a tree bottom-up approach
+     * return specific value for null node
+     * call function recursive for left child
+     * call function recursive for right child  
+     * get max of the sub-tree depth and add 1
+     */
+    private int getDepthRecursiveBottomToTop(Node current) {
+        if(current == null)
+            return 0;
+        int leftDepth = getDepthRecursiveBottomToTop(cuurent.left);
+        int rightDepth = getDepthRecursiveBottomToTop(current.right);
+        return Math.max(leftDepth, rightDepth) + 1;
     }
     
     private BinarySearchTree createBinarySearchTree() {
