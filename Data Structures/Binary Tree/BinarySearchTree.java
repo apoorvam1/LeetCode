@@ -207,8 +207,8 @@ public class BinarySearchTree {
         if(current.left == null && current.right == null) {
             maxDepth = Math.max(depth, maxDepth);   
         }
-        getDepthRecursiveTopToBottom(current.left, depth+1);
-        getDepthRecursiveTopToBottom(current.right, depth+1);
+        getDepthRecursiveTopToBottom(current.left, depth+1, maxDepth);
+        getDepthRecursiveTopToBottom(current.right, depth+1, maxDepth);
     }
     
     /*
