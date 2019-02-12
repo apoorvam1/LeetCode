@@ -1,4 +1,6 @@
-As we know, a tree can be defined recursively as a node(the root node), which includes a value and a list of references to other nodes. Recursion is one of the nature features of a tree. Therefore, many tree problems can be solved recursively. For each recursion level, we can only focus on the problem within one single node and call the function recursively to solve its children.
+As we know, a tree can be defined recursively as a node(the root node), which includes a value and a list of references to other nodes. Recursion is one of the nature features of a tree. Therefore, many tree problems can be solved recursively. 
+
+IMP: "For each recursion level, we can only focus on the problem within one single node and call the function recursively to solve its children. Think of the solution from the perspective of that one node, as the same has to be repeated for each node below" 
 
 Typically, we can solve a tree problem recursively from the top down or from the bottom up.
 
