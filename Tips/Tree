@@ -1,0 +1,3 @@
+Ancestor Problem
+
+If the problem involves keeping track of ancestors create a child-parent map of each node and use it further
