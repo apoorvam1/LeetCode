@@ -1,0 +1,77 @@
+BFS is mainly used for traversal and to find the shortest path. But BFS can be used in more abstract manner. 
+While solving a problem using BFS it's important to identify Node/Status and Edges/Transitions. 
+
+Template-1
+
+/**
+ * Return the length of the shortest path between root and target node.
+ */
+ 
+ int BFS(Node root, int target) {
+    // Store all the nodes to be processed
+    Queue<Node> queue;
+    
+    // distance between root and target
+    int distance = 0;
+    
+    add root to queue;
+    
+    while(queue is not empty) {
+        distance = distance + 1;
+        
+        int size = queue.size();
+        // iterate over the nodes in the queue add neighbors and remove head node
+        for(int i = 0; i < size; i++) {
+            Node cur = first node in the queue;
+            
+            return distance if cur is target;
+            for(Node next: neightbors of cur) {
+                add to queue;
+            }
+            remove cur from queue;
+        }  
+    }
+    return -1 if not found;
+ }
+ 
+ 
+ Template-2 (never visit a node twice)
+ Just maintain a hashset of visited node in the above code 
+ 
+ /**
+ * Return the length of the shortest path between root and target node.
+ */
+ 
+ int BFS(Node root, int target) {
+    // Store all the nodes to be processed
+    Queue<Node> queue;
+    // Store all visited nodes
+    HashSet<Node> visited;
+    
+    // distance between root and target
+    int distance = 0;
+    
+    add root to queue;
+    add root to visited;
+    
+    while(queue is not empty) {
+        distance = distance + 1;
+        
+        int size = queue.size();
+        // iterate over the nodes in current level, add neighbors and remove head node
+        for(int i = 0; i < size; i++) {
+            Node cur = first node in the queue;
+            
+            return distance if cur is target;
+            for(Node next: neightbors of cur) {
+                if(next is not visited) {
+                  add to queue;
+                  add to visited;
+                }
+            }
+            remove cur from queue;
+        }  
+    }
+    return -1 if not found;
+ }
+ 
