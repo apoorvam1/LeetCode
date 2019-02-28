@@ -23,6 +23,7 @@ Template-1
         // iterate over the nodes in the queue add neighbors and remove head node
         for(int i = 0; i < size; i++) {
             Node cur = first node in the queue;
+            return distance if cur is target;
             
             return distance if cur is target;
             for(Node next: neightbors of cur) {
