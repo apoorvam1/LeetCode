@@ -1,0 +1,85 @@
+Given a 2d grid map of '1's (land) and '0's (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
+
+Example 1:
+
+Input:
+11110
+11010
+11000
+00000
+
+Output: 1
+Example 2:
+
+Input:
+11000
+11000
+00100
+00011
+
+Output: 3
+
+
+# My Note: Refer to BFS template and try to apply template on this problem
+
+class Solution {
+    public int numIslands(char[][] grid) {
+       if(grid.length == 0)
+           return 0;
+        int islands = 0;
+        for(int i = 0; i < grid.length; i++) {
+            for(int j = 0; j < grid[0].length; j++) {
+                if(grid[i][j] == '1') {
+                    islands++;
+                    bfs(i, j, grid);
+                }
+            }
+        }
+        return islands;
+    }
+    
+    private void bfs(int i, int j, char[][] grid) {
+        Queue<Node> q = new LinkedList<>();
+        // add root to queue
+        q.offer(new Node(i, j));
+        // Once added to the queue, reset to '0' to mark it as visited
+        grid[i][j] = '0';
+        while(!q.isEmpty()) {
+            // check all the childrens of grid[i][j]
+            Node cur = q.poll();
+            
+            // up
+            if(cur.i-1 >= 0 && grid[cur.i-1][cur.j] == '1') {
+                q.offer(new Node(cur.i-1,cur.j));
+                grid[cur.i-1][cur.j] = '0';
+            }
+            
+            //down
+            if(cur.i+1 < grid.length && grid[cur.i+1][cur.j] == '1') {
+                q.offer(new Node(cur.i+1, cur.j));
+                grid[cur.i+1][cur.j] = '0';
+            }
+            
+            //left
+            if(cur.j-1 >= 0 && grid[cur.i][cur.j-1] == '1') {
+                q.offer(new Node(cur.i, cur.j-1));
+                grid[cur.i][cur.j-1] = '0';
+            }
+            
+            //right
+            if(cur.j+1 < grid[0].length && grid[cur.i][cur.j+1] == '1') {
+                q.offer(new Node(cur.i, cur.j+1));
+                grid[cur.i][cur.j+1] = '0';
+            }
+        }
+    }
+    
+    private class Node {
+        int i; 
+        int j;
+        public Node(int i, int j) {
+            this.i = i; 
+            this.j = j;
+        }
+    }
+}
