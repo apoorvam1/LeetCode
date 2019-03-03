@@ -1,0 +1,62 @@
+Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times.
+
+Note: The algorithm should run in linear time and in O(1) space.
+
+Example 1:
+
+Input: [3,2,3]
+Output: [3]
+Example 2:
+
+Input: [1,1,1,3,3,2,2,2]
+Output: [1,2]
+
+Hint: How many majority elements could it possibly have? (2 at most)
+
+class Solution {
+    public List<Integer> majorityElement(int[] nums) {
+        List<Integer> res = new LinkedList<>();
+        
+        // at most an array can have only 2 majority elements
+        int maj1 = 0;
+        int maj2 = 0;
+        int count1 = 0;
+        int count2 = 0;
+        
+        for(int n : nums) {
+            if (maj1 == n) {
+                count1++;
+            } else if (maj2 == n) {
+                count2++;
+            } else if (count1 == 0) {
+                maj1 = n;
+                count1++;
+            } else if (count2 == 0) {
+                maj2 = n;
+                count2++;
+            } else {
+                count1--;
+                count2--;
+            }
+        }
+        
+        // Once we have the candidates for majority element
+        // reset the counters and check if those candidates are actually majority elements
+        count1 = 0;
+        count2 = 0;
+        
+        for(int n : nums) {
+            if(n == maj1) {
+                count1++;
+            } else if (n == maj2) {
+                count2++;
+            }
+        }
+        
+        if(count1 > nums.length/3)
+            res.add(maj1);
+        if(count2 > nums.length/3)
+            res.add(maj2);
+        return res;
+    }
+}
