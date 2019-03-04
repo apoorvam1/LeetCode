@@ -1,0 +1,6 @@
+1. Add to the front of the LinkedList
+    - list.add(0, value);
+    - list.offerFirst(value);
+    
+2. Reverse a list
+  - Collections.reverse(list) // this method returns void
