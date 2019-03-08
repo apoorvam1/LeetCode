@@ -2,6 +2,10 @@
   - Character.isLetter(char)
   - (char <= 'a' && char >= 'z') || (char <= 'A' && char >= 'Z')
   
+# Get the position of an alphabet
+  - int index = char - 'A'
+    if char = 'A', index would be 0
+  
 # Check if a letter is vowel
   - "AEIOUaeiou".indexOf(c) != -1
   
