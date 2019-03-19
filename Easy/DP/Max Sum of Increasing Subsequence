@@ -1,0 +1,38 @@
+Given an array A of N positive integers. Find the sum of maximum sum increasing subsequence of the given array.
+
+Input: 1 101 2 3 100 4 5
+Output: 106 (comprising 1,2,3,100)
+Refer: https://www.youtube.com/watch?v=99ssGWhLPUE
+
+class MaximumSumSubsequence {
+  private int maxSum(int[] arr) {
+    int T[] = new int[arr.length];
+    
+    // Maximum sum at each index is at least as large as the original value
+    for (int i = 0; i < T.length; i++) {
+       T[i] = arr[i];
+    }
+    
+    // calculate max possible sum of increasin sequence at each index
+    for(int i=1; i < T.length; i++) {
+      for(int j = 0; j < i; j++) {
+          // if value at i is greater than value at j
+          if(arr[j] < arr[i]) {
+              // Max Sum possible at i is, max of(current val at i, max sum at j + current val)
+              T[i] = Math.max(T[i], T[j]+arr[i]);
+          }
+      }
+    }
+    
+    int max = T[0];
+    
+    for(int i = 1; i < T.length; i++) {
+        if(T[i] > max) {
+            max = T[i];
+        }
+    }
+    
+    return max;
+  }
+
+}
