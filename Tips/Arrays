@@ -1,4 +1,10 @@
 1.  Extract part of the array
-    Arrays.copyOfRange(res, startIndex(inclusive), endIndex(inclusive));
+    - Arrays.copyOfRange(res, startIndex(inclusive), endIndex(inclusive));
     
 2.  When working with arrays containing negative numbers check if Math.abs(val) helps simplify the problem
+
+3. Reverse an array
+    - Collections.reverse(Arrays.asList(arr));
+
+4. Print an array
+    - Arrays.toString(arr);
