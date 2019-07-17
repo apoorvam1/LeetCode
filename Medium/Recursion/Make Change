@@ -1,0 +1,63 @@
+Given value X, find the minimum number of coins needed to make change
+Ex: X = 32, Available coins = [25,10,5,1]
+    Ans: 4 (25, 10, 1, 1)
+
+W's? 
+What are the coin system used? Should the solution be generic to any coin system?
+
+Approach:
+Think about what could be the minimum number of coins needed in the worst case? 
+Could be all 1s. i.e min is X in the worst case. 
+Solve with this in mind, how to find better value for min. 
+
+
+int change(int X, int[] coins) {
+  if (X == 0) return 0;
+  
+  int min = X;
+  for (int coin: coins) {
+      if (X - coin >= 0) {
+          int coinsNeeded = change(X - coin, coins);
+          // +1 is for the coin considered already when X - coin is done
+          if (min > coinsNeeded + 1) {
+              min = coinsNeeded + 1;
+          }
+      }
+  }
+  
+  return min;
+}
+
+Trace the above code with an example with recursion tree. You realize the many recusive calls are made for same value. 
+Hence, bring in memoization. 
+
+int change(int X, int coins[]) {
+  // create a cache
+  int[] cache = new int[X];
+  // since X==0 is base case, put an invalid initial value in cache
+  for(int i = 0; i < cache.length; i++) {
+      cache[i] = -1;
+  }
+  return change(X, coins, cache);
+}
+
+int change(int X, int[] coins, int[] cache) {
+  if (X == 0) return 0;
+  
+  int min = X;
+  for (int coin: coins) {
+      if (X - coin >= 0) {
+          int c;
+          if (cache[X-coin] >= 0) {
+              c = cache[X-coin];
+          } else {
+              c = change(X-coin, coins, cache);
+              cache[X-coin] = c;
+          }
+          if (min > c+1) {
+            min = c+1;
+          }
+      }
+  }
+  return min;
+}
