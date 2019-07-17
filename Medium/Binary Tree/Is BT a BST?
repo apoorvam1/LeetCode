@@ -1,0 +1,44 @@
+Given a binary tree, return whether the tree is a Binary Search Tree?
+
+W's? 
+Does the node value hold integer? String? Depending on the type decide the algorithm.
+
+If the node is in the left side of the root, it will have the upper limit on the value. If the node is in the 
+right side of the root, it will have lower limit on the value. By keeping this in mind write the recursive algorithm.
+
+Handle null case and base cases! 
+
+
+public boolean isBST(Node root) {
+    return isBST(root, null, null);
+}
+
+private boolean isBST(Node root, int min, int max) {
+    if(root == null) return false;
+    
+    if((min != null && root.value <= min) || (max != null && root.value > max)) {
+      return false;
+    }
+    
+    if(!isBST(root.left, min, root.value) || !isBST(root.right, root.value, max)) {
+      return false
+    }
+    
+    return true;
+}
+
+OR
+
+pass upper limit for the min and max, and make sure node value doesn't fall out of the limit.
+
+public boolean isBST(Node root) {
+    return isBST(root, Integer.MIN_VAUE, Integer.MAX_VALUE);
+}
+
+private boolean isBST(Node root, int min, int max) {
+  if(root == null) return false;
+  
+  if(root.value < min || root.value > max) return false;
+  
+  return (isBST(root.left, min, root.value) && isBST(root.right, root.value+1, max));
+}
