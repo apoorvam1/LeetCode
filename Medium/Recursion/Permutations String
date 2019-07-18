@@ -29,5 +29,3 @@ private void permutations(String prefix, String suffix, ArrayList<String> result
         }
     }
 }
-
-
