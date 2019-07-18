@@ -1,0 +1,24 @@
+Given an interger array a find all the permutations
+
+Permutations on integer array is a little trickier than string as we can't find sub array as easily as we get substring. 
+Here, we have to keep the same array, swap values instead of performing substring and swap it back for the next recursive
+call. 
+
+
+public ArrayList<int[]> permutations(int[] a) {
+    ArrayList<int[]> result = new ArrayList<>();
+    permutations(a, 0, result);
+    return result;
+}
+
+private void permutations(int[] a, int start, ArrayList<int[]> result) {
+    if(start >= a.length) {
+        result.add(a.clone());
+    } else {
+        for(int i = start; i < a.length; i++) {
+            swap(start, i);
+            permutations(a, start + 1, result);
+            swap(start, i);
+        }
+    }
+}
