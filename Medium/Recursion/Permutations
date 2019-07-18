@@ -1,0 +1,33 @@
+Given a String s return all the permutations
+
+Ex: Check how recursion fits in here
+Given s = "abc" permutations can be generated as
+keeping 'a' fixed and appending it with all permutations of 'bc', keeping 'b' fixed and appending it with all 
+permutations of 'ac' & so on..
+a bc, a cb, b ac, b ca, c ab, c ba
+
+
+Keep a prefix & suffix. When suffix length is 0, we've a permutation. Add it to the result.
+
+When a recursive function needs to return collection of data, overlad the public function and pass the result collection 
+as the argument
+
+
+public ArrayList<String> permutations(String s) {
+  ArrayList<String> result = new ArrayList<>();
+  permutations("", s, result);
+  return result;
+}
+
+private void permutations(String prefix, String suffix, ArrayList<String> result) {
+    if(suffix.length() == 0) {
+        result.add(prefix);
+    } else {
+        for( int i = 0; i < suffix.length(); i++ ) {
+            permutations(prefix + suffix.charAt(i), suffix.subString(0,i) + suffix.subString(i+1,suffix.length()),
+            result);
+        }
+    }
+}
+
+
