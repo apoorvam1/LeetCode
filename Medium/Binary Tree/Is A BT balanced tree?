@@ -1,0 +1,43 @@
+Check if a binary tree is balanced?
+
+A tree is balanced if the difference of the hieght of any node's LST and RST is max 1.
+
+Here, we need to calculate the height of each node's LST and RST. Hence go for recursion. 
+
+public void getHeight(Node n) {
+  if(n == null) return -1;
+  return Math.max(getHeight(n.left), getHeight(n.right)) + 1;
+}
+
+public boolean isBalanced(Node n) {
+  if(n == null) return true;
+  
+  int h1 = getHeight(n.left);
+  int h2 = getHeight(n.right);
+  
+  if(Math.abs(h1-h2) > 1) return false;
+  return isBalanced(n.left) && isBalanced(n.right);
+}
+
+
+Since we are starting from the root here, we caculate the height of the subnodes repeatedly. Let's try to optimize on that.
+Let's start from the leaf (that's recurse to the leaf first). If a node is not balanced return -1. Else return the height
+of the longest subtree for that node. 
+
+
+public boolean isBalanced(Node n) {
+  return getHeight(n) > -1;
+}
+
+private int getHeight(Node n) {
+  if(n == null) return 0;
+  
+  int h1 = getHeight(n.left);
+  int h2 = getHeight(n.right);
+  
+  // base case
+  if(h1 == -1 || h2 == -1) return -1;
+  if(Math.abs(h1 - h2) > 1) return -1;
+  
+  return Math.max(h1, h2) + 1;
+}
