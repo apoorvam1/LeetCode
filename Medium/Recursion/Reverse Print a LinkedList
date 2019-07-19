@@ -1,0 +1,18 @@
+Given a linked list reverse print it. 
+
+W's: How large the data set will be? Recursion can take a lot of space. 
+    Why data will it hold?
+    Is there any specific format expected while printing output?
+    
+public class Node {
+  int value;
+  Node next;
+}
+
+public void reversePrint(Node head) {
+  if(head == null) return;
+  reversePrint(head.next);
+  System.out.println(head.value);
+}
+
+Same as post order traversal. 
