@@ -1,0 +1,36 @@
+Given a stack of n elements reverse it without using additional space.
+
+W's: 
+  Should I implement my own stack and reverse it? If so, I can implement a stack with LinkedList. Then the problem will 
+  be to revese linked list. 
+  Can I use Java Stack?
+  
+Soln: We recursively go through the elements and reach the bottom of the stack. This element must end up at the top in the end.
+Next last element must get inserted at the bottom now and so on. To Insert at bottom we pop all other elements, insert the 
+current element and put back the popped elements. 
+
+1                       4
+2  ->             4     3  
+3           4     3     2
+4     4     3     2     1
+
+void reverseStack(Stack<Integer> stk) {
+  if(stk.size() > 0) {
+    int top = stk.pop();
+    reverseStack(stk);
+    
+    insertAtBottom(top, stk);
+  }
+  
+  // Every element x must be moved to the bottom of s
+ private static void insertAtBottom(int x, Stack<Integer> s) {
+      if(s.isEmpty()) {
+          s.push(x);
+      } else {
+          int a = s.peek();
+          s.pop();
+          insertAtBottom(x,s);
+
+          s.push(a);
+      }
+  }
