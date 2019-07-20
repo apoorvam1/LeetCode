@@ -1,0 +1,54 @@
+Given 2 numbers find sum of those 2 numbers without arithmetic operation. 
+
+W's: 
+  No arithmetic operations, no power, no log?
+  Check if the sum can overflow.
+  
+If arithmetic operations are not allowed, possible option would be solve it through bitwise operation.
+
+Ex: 
+  1 0 0 1
++ 0 0 1 1
+----------
+  1 1 0 0
+  
+  If we see the sum we get
+  0 + 0 = 0
+  1 + 0 = 1
+  0 + 1 = 1
+  1 + 1 = 0 (With carry 1)
+  
+  i.e It is an XOR operation. 
+  
+  If we solve it now, 
+  
+num1   1 0 0 1
+num2 + 0 0 1 1   
+---------------
+sum    1 0 1 0   XOR result
+carry  0 0 1 0
+---------------
+sum    1 0 0 0 
+carry  0 1 0 0   XOR result
+---------------
+       1 1 0 0
+       
+So, hows the carry calculated here? 
+0 + 0 = 0
+1 + 0 = 0
+0 + 1 = 0
+1 + 1 = 1
+We see that the carry is left shifted by 1 and the above operation is &
+
+
+Arriving at recursive solution. 
+- We stop when the carry is 0
+- Partial sum and carry are XORed in subsequent calls. 
+
+
+int sum(int a, int b) {
+    if(b == 0) return a;
+    int partialSum = a ^ b;
+    int carry = (a & b) << 1;
+    return sum(partialSum, carry); 
+}
