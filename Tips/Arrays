@@ -32,8 +32,5 @@
 	- Either low to pivot or pivot+1 to high will always be sorted
     
 14. To initialize var to max values, Say for integer 
-	- int a = Integer.MAX_VALUE
-        
-15. when an int is converted to String using "" + 10 the underlying operation is,
-    new StringBuffer().append(“”).append(10).toString()
+	- int a = Integer.MAX_VALUE 
 
