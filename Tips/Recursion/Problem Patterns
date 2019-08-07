@@ -9,4 +9,8 @@ How many ways are there to reach the 'N'th step? from n-1th step, n-2th step or 
 2. It's ok if the recursion call passes negative value in some case, base case should handle it
 3. When the result or recursion increases in each call, think about overflow.
 4. When recursion is returning boolean, check if the base case and default return value should be true or false.
+5. If algorithm is not straight forward, start with tracing. What is the solution when n=0, n=1, n=2 and so on. Then from 
+the solution comeup with the pattern.
+6. If the input is an array or list of elements(optionally sorted), usually the recursive method will have additional param. 
+May be an index pointing to current element or 2 pointers pointing to start and end.
 ***************************
