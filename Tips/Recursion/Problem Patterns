@@ -1,0 +1,12 @@
+1. A Child is running up a staircase with 'n' steps and it can hop either 1 step, 2 step or 3 steps at a time. 
+Implement a method to count how many possible ways the child can run up the stairs.
+
+Finding Recursive solution: 
+How many ways are there to reach the 'N'th step? from n-1th step, n-2th step or n-3rd step.  
+
+***************************
+1. If the question is about the result at the end(nth) stage, think about how any 'N'th stage can be reached?
+2. It's ok if the recursion call passes negative value in some case, base case should handle it
+3. When the result or recursion increases in each call, think about overflow.
+4. When recursion is returning boolean, check if the base case and default return value should be true or false.
+***************************
