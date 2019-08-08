@@ -13,4 +13,6 @@ How many ways are there to reach the 'N'th step? from n-1th step, n-2th step or 
 the solution comeup with the pattern.
 6. If the input is an array or list of elements(optionally sorted), usually the recursive method will have additional param. 
 May be an index pointing to current element or 2 pointers pointing to start and end.
+7. While solving the problem manually, if the result is a list of elements and in next recursion call if we go through
+all the elements of the list then the recursive solution might need a iteration loop in it. 
 ***************************
