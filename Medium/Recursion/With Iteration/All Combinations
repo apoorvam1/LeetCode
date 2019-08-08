@@ -1,0 +1,37 @@
+Give a list of integers return all the combination of the numbers.
+
+Ex: [1,2,3] =>[[], [1], [2], [1,2], [3], [1,3], [2,3], [1,2,3]]
+
+How does the algorithm goes? 
+  At every index we can either consider the number in the combination or explude it. 
+  i.e when index=0 value=1, we get [] & [1].
+  when index=1 value 2, we take previous combinations and either include 2 in it or exclude it. So we get [][2][1][1,2]
+  ....
+  
+Approach to code: 
+  Since it's an array, recursive call must have an index arg. 
+  Since we use result list of previous call and iterate over them there must be a for loop
+  We are returning a list of lists
+  Base case: When we reach end of the array return empty list
+  
+  
+List<List<Integer>> combinations(int[] n) {
+  return combinations(n, 0);
+}
+
+List<List<Integer>> combinations(int[] n, int index) {
+  if(index == n.length) {
+    List<List<Integer>> result = new LinkedList<>();
+    result.add(new LinkedList<>();
+    return result;
+  }
+  
+  List<List<Integer>> result = new LinkedList<>();
+  for(List<Integer> current: combinations(n, index+1) {
+      result.add(new LinkedList<Integer>(current));
+      
+      current.add(i);
+      result.add(new LinkedList<Integer>(current);
+  }
+  return result;
+}
