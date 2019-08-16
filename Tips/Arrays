@@ -17,7 +17,7 @@
 
 8. Try if HashTables/HashMap can be used.
 
-9. If array elements have some pattern then summation or xor might help.
+9. If array elements have some pattern then summation,xor or using hashmap might help.
 
 10. Using character as an index to an integer array (array[char]) gives the ascii index of that array. 
 
