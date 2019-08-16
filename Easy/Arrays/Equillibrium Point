@@ -1,7 +1,9 @@
-Given an array A of N positive numbers. Find the position where equilibrium first occurs in the array. Equilibrium position in an array is a position such that the sum of elements before it is equal to the sum of elements after it.
+# Given an array A of N positive numbers. Find the position where equilibrium first occurs in the array. 
+# Equilibrium position in an array is a position such that the sum of elements before it is equal to the sum of elements after
+# it.
 
-Example: [1 3 5 2 2]
-Output: 2
+# Example: [1 3 5 2 2]
+# Output: 2
 
 class EquilibriumIndex
 {
