@@ -17,5 +17,7 @@
   - char res = 0; 
     res ^= str.charAt(i); 
    
-15. when an int is converted to String using "" + 10 the underlying operation is,
+6. when an int is converted to String using "" + 10 the underlying operation is,
     new StringBuffer().append(“”).append(10).toString()
+    
+7. Use String builder when returning a new String as result
