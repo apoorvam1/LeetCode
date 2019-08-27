@@ -8,6 +8,7 @@
 # s = "loveleetcode",
 # return 2.
 
+#Solution 1: With If check
 class Solution {
     public int firstUniqChar(String s) {
         if(s == null) return -1;
@@ -24,5 +25,35 @@ class Solution {
                return i; 
         }
         return -1;        
+    }
+}
+
+
+# Solution 2: With While loop
+class Solution {
+    public String reverseVowels(String s) {
+        if (Objects.isNull(s)) return s;
+        if (s.length() == 1) return s;
+
+        int i = 0, j = s.length()-1;
+
+        String vowels = "AEIOUaeiou";
+        char[] chars = s.toCharArray();
+
+        while (i < j) {
+            while (i < j && vowels.indexOf(chars[i]) == -1) i++;
+            while (i < j && vowels.indexOf(chars[j]) == -1) j--;
+
+            char l = chars[i];
+            char r = chars[j];
+
+            chars[i] = r;
+            chars[j] = l;
+            
+            j--;
+            i++;
+        }
+
+        return new String(chars);
     }
 }
