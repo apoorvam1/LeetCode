@@ -26,6 +26,8 @@
 # because mid+1 elem is already greater than it's left number. 
 # either any number from mid+1 will be peak or last number will be peak
 # Same logic applied if mid elem is greater than mid+1 elem
+# If none of the in-between elements are peak, either first or last will always be peak.
+# left of 1st elem is assumed to be -infinity And right of last is assumed to be -infinity
 
 class Solution {
     public int findPeakElement(int[] nums) {
