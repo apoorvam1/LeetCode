@@ -1,0 +1,52 @@
+# Give a string s, count the number of non-empty (contiguous) substrings that have the same number of 0's and 1's, 
+# and all the 0's and all the 1's in these substrings are grouped consecutively.
+
+# Substrings that occur multiple times are counted the number of times they occur.
+
+# Example 1:
+# Input: "00110011"
+# Output: 6
+# Explanation: There are 6 substrings that have equal number of consecutive 1's and 0's:
+# "0011", "01", "1100", "10", "0011", and "01".
+
+# Notice that some of these substrings repeat and are counted the number of times they occur.
+
+# Also, "00110011" is not a valid substring because all the 0's (and 1's) are not grouped together.
+# Example 2:
+# Input: "10101"
+# Output: 4
+# Explanation: There are 4 substrings: "10", "01", "10", "01" that have equal number of consecutive 1's and 0's.
+
+# Note:
+# s.length will be between 1 and 50,000.
+# s will only consist of "0" or "1" characters.
+
+# My Notes: 
+# keep track of what you were counting so far. i.e through last
+# Make sure to reset last of if it has changed
+# if last is 1 make sure you have enough 0's counted to  match these 1's and vice versa
+
+class Solution {
+    public int countBinarySubstrings(String s) {
+        int totalCount = 0;
+        int zero = 0;
+        int one = 0;
+        int last = -1;
+        
+        for(char c: s.toCharArray()) {
+            if(c == '0') {
+                if(last == 1) zero = 0;
+                zero++;
+                last = 0;
+            } else {
+                if(last == 0) one = 0;
+                one++;
+                last = 1;
+            }
+            
+            if((last == 1 && zero >= one) || (last == 0 && one >= zero)) totalCount++;
+        }
+        
+        return totalCount;
+    }
+}
