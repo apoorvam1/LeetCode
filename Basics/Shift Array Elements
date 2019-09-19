@@ -1,0 +1,9 @@
+# Shift array elements 
+
+class Solution {
+    public void shiftElements(int[] arr) {
+        for(int j = arr.length - 1; j > 0; j--) {
+            arr[j] = arr[j-1];
+        }
+    }
+}
