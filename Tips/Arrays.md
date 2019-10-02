@@ -43,6 +43,7 @@
 	- finding pivot point might help find the solution
 	- Either low to pivot or pivot+1 to high will always be sorted
     
-18. To initialize var to max values, Say for integer 
+18. Initialize to Max and Min value
 	- int a = Integer.MAX_VALUE 
+	- int b = Integer.MIN_VALUE
 
