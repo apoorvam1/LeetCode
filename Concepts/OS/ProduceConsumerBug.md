@@ -10,7 +10,7 @@ Context switch can occur anywhere in the code. Please describe how the bug can o
 Producer
 `while (true) {
        item = generate_item()
-       mutex.lock()
+       mutex.lock()
        fifo_queue.push(item)
        mutex.unlock()
        condition.signal()
