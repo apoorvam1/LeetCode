@@ -8,16 +8,19 @@ There are sufficient consumers to process the items where the queue will not bui
 Context switch can occur anywhere in the code. Please describe how the bug can occur and provide a fix. 
 
 Producer
-`while (true) {
+```
+while (true) {
        item = generate_item()
        mutex.lock()
        fifo_queue.push(item)
        mutex.unlock()
        condition.signal()
-}`
+}
+```
 
 Consumers
-`while(true) {
+```
+while(true) {
        mutex.lock()
        if (fifo_queue.empty()) {
              condition.wait(mutex)
@@ -25,7 +28,8 @@ Consumers
        item = fifo_queue.remove()
        mutex.unlock()
        process_item(item)
-}`
+}
+```
 
 
 Solution: 
@@ -39,16 +43,19 @@ consumed the data this consumer will go back to sleep again.
 Since it is mentioned that there are sufficient consumers to process the records and the buffer is unbounded we will not need the producer to wait on the condition.
 
 Producer
-`while (true) {
+```
+while (true) {
        item = generate_item()
        mutex.lock()
        fifo_queue.push(item)
        mutex.unlock()
        condition.signal()
-}`
+}
+```
 
 Consumers
-`while(true) {
+```
+while(true) {
        mutex.lock()
        while (fifo_queue.empty()) {
              condition.wait(mutex)
@@ -56,7 +63,8 @@ Consumers
        item = fifo_queue.remove()
        mutex.unlock()
        process_item(item)
-}`
+}
+```
 
 Reference: 
 
