@@ -19,3 +19,6 @@ a mutex is locking mechanism used to synchronize access to a resource. Only one 
 A semaphore is a generalized mutex. In lieu of single buffer, we can split the 4 KB buffer into four 1 KB buffers (identical resources). A semaphore can be associated with these four buffers. The consumer and producer can work on different buffers at the same time.
 
 Semaphore is signaling mechanism (“I am done, you can carry on” kind of signal). For example, if you are listening songs (assume it as one task) on your mobile and at the same time your friend calls you, an interrupt is triggered upon which an interrupt service routine (ISR) signals the call processing task to wakeup.
+
+Reference: 
+https://barrgroup.com/Embedded-Systems/How-To/RTOS-Mutex-Semaphore
