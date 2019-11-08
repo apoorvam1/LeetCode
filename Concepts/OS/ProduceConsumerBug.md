@@ -32,6 +32,7 @@ while(true) {
 ```
 
 
+
 Solution: 
 The bug is that, 
 It is possible that after the producer produces and releases the lock any consumer can acquire the lock and consume the data. Once the producer signals the sleeping thread, the sleeping thread
