@@ -7,5 +7,8 @@
 * The downside to indexing is that these indices require additional space on the disk since the indices are stored together in a table
 * This file can quickly reach the size limits of the underlying file system if many fields within the same table are indexed.
 
+Reference: https://stackoverflow.com/questions/1108/how-does-database-indexing-work
+PS: Must read Ans-2
+
 
 
