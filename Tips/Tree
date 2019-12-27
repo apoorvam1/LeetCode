@@ -10,4 +10,9 @@ Ex: getHt(Node n)
       h1 = getHt(n.left)
       h2 = getHt(n.right)
       ....
+      
+
+If any problem involves depth/height of a tree consider below facts
+- The curDepth at the root is 1
+- Depth is reached when a leaf node is found
 
