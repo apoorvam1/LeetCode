@@ -29,5 +29,5 @@
    
 4. How to check one of left/right node is null OR if both nodes are null? 
 
-- if(left == null || right == null) return left == right;
+   - if(left == null || right == null) return left == right;
 
