@@ -17,6 +17,8 @@ If any problem involves depth/height of a tree consider below facts
 - Depth is reached when a leaf node is found
 
 BFS vs DFS in terms of memory and speed
+
+
 **Memory requirements:** The stack size is bound by the depth whereas the queue size is bound by the width. For a balanced binary tree with n nodes, that means the stack size would be log(n) but the queue size would b O(n). Note that an explicit queue might not be needed for a BFS in all cases -- keeping a stack of child indices might be sufficient where feasible.
 
 
