@@ -30,4 +30,8 @@
 4. How to check one of left/right node is null OR if both nodes are null? 
 
    - if(left == null || right == null) return left == right;
+   
+5. If a problem involves traversing around a 2D grapth, it's better to define a Datastructure say 'Point' with rowNum and colNum.
+
+
 
