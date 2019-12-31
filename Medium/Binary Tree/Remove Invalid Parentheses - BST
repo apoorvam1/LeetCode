@@ -1,0 +1,69 @@
+# Remove the minimum number of invalid parentheses in order to make the input string valid. Return all possible results.
+
+# Note: The input string may contain letters other than the parentheses ( and ).
+
+# Example 1:
+# Input: "()())()"
+# Output: ["()()()", "(())()"]
+
+# Example 2:
+# Input: "(a)())()"
+# Output: ["(a)()()", "(a())()"]
+
+# Example 3:
+# Input: ")("
+# Output: [""]
+
+class Solution {
+    public List<String> removeInvalidParentheses(String s) {
+        List<String> res = new LinkedList<>();
+        if(s == null) return res;
+        
+        HashSet<String> visited = new HashSet<>();
+        Queue<String> queue = new LinkedList<>();
+        boolean found = false;
+        
+        queue.offer(s);
+        visited.add(s);
+        
+        while(!queue.isEmpty()) {
+            String cur = queue.poll();
+            
+            // if cur is a valid str then add it to result, mark as found and skip all other operations
+            if(isValid(cur)) {
+                res.add(cur);
+                found = true;
+            }
+            
+             // Once a string is found to be valid in a level, the variable "found" will be set to true. That means only other strings in the same level will be checked and no shorter strings will be generated for the next level.
+            if(found) continue;
+            
+            // if cur is not valid, try to remove a paranthesis at each index, if it is not already visited add to queue
+            for(int i = 0; i < cur.length(); i++) {
+                
+                // skip all non-paranthesis characters
+                if(cur.charAt(i) != '(' && cur.charAt(i) != ')') continue;
+                
+                String temp = cur.substring(0, i) + cur.substring(i+1);
+                
+                if(!visited.contains(temp)) {
+                    queue.offer(temp);
+                    visited.add(temp);
+                }
+            } 
+        }
+        return res;
+    }
+    
+    private boolean isValid(String s) {
+        //System.out.println(s);
+        int count = 0;
+        
+        for(int i = 0; i < s.length(); i++) {
+            if(s.charAt(i) == '(') count++;
+            if(s.charAt(i) == ')' && count-- == 0) return false;
+        }
+        
+        return count == 0;
+    }
+}
