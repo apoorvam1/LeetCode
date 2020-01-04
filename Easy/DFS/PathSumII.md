@@ -24,6 +24,7 @@ Return:
 
 
 **Solution**
+```
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -58,3 +59,4 @@ class Solution {
         subRes.removeLast();
     }
 }
+```
