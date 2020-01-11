@@ -21,21 +21,21 @@ start is greater than n, so the result is start - 1
 
 ```
 class Solution {
-    public int mySqrt(int n) {
-       
-        long start = 0, end = n;
-
-		while(start <= end)
-		{
-			long mid = start + (end - start) / 2;
-
-            if(mid * mid <= n)
-				start = mid + 1;
-			else
-				end = mid - 1;
-		}
-		return (int)start - 1;
-	
+    public int mySqrt(int x) {
+        long start = 0;
+        long end = x;
+        
+        while(start <= end) {
+            long mid = start + (end - start)/2;
+            if(mid * mid == x) {
+                return (int) mid;
+            } else if(mid * mid < x) {
+                start = mid + 1;
+            } else {
+                end = mid - 1;
+            }
+        }  
+        return (int) start - 1; 
     }
 }
 ```
