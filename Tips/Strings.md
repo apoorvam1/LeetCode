@@ -1,20 +1,20 @@
 1. Check if a letter is an alphabet
-  - Character.isLetter(char)
-  - (char <= 'a' && char >= 'z') || (char <= 'A' && char >= 'Z')
+    - Character.isLetter(char)
+    - (char <= 'a' && char >= 'z') || (char <= 'A' && char >= 'Z')
   
 2. Get the position of an alphabet
-  - int index = char - 'A'
+    - int index = char - 'A'
     if char = 'A', index would be 0
   
 3. Check if a letter is vowel
-  - "AEIOUaeiou".indexOf(c) != -1
+    - "AEIOUaeiou".indexOf(c) != -1
   
 4. Get a hang of String manipulation functions
-  - string.split("\\s");
-  - string.substring(1) OR string.substring(2,8)
+    - string.split("\\s");
+    - string.substring(1) OR string.substring(2,8)
   
 5. if chars are repeating in the string try to find the pattern, xor may help
-  - char res = 0; 
+    - char res = 0; 
     res ^= str.charAt(i); 
    
 6. when an int is converted to String using "" + 10 the underlying operation is,
