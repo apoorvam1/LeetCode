@@ -11,7 +11,7 @@ Output:
   ["nat","tan"],
   ["bat"]
 ]
-``
+```
 Note:
 
  - All inputs will be in lowercase.
