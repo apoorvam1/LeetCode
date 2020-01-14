@@ -21,3 +21,6 @@
     new StringBuffer().append(“”).append(10).toString()
     
 7. Use String builder when returning a new String as result
+
+8. Sort a String
+   - Arrays.sort(s.toCharArray())
