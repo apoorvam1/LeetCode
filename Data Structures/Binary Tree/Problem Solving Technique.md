@@ -44,7 +44,7 @@ answer = 0;
 3. right_ans = bottom_up(root.right)        // call function recursively for right child
 4. return answers                           // answer <-- left_ans, right_ans, root.val
 
-==========================================================================================
+=======================================================================================
 
 EX: maximum_depth(root):
 
