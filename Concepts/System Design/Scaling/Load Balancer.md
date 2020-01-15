@@ -33,3 +33,8 @@ Some of them are as follows:
 - source: This selects which server to use based on a hash of the source IP i.e. your user’s IP address. This is one method to ensure that a user will connect to the same server.
 
 - Sticky Sessions: Some applications require that a user continues to connect to the same backend server. This persistence is achieved through sticky sessions, using the appsession parameter in the backend that requires it.
+
+**What issues could bringin in a load balancer cause?**
+- If it doesn't have enough resources, it can become a bottleneck
+- Increases system complexity
+- Single load balancer is a single point of failure and bringing in more load balancer increases the complexity of the system
