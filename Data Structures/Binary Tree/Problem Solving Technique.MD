@@ -9,6 +9,7 @@ Typically, we can solve a tree problem recursively from the top down or from the
 "Top-down" means that in each recursion level, we will visit the node first to come up with some values, and pass these values to its children when calling the function recursively. So the "top-down" solution can be considered as kind of preorder traversal. To be specific, the recursion function top_down(root, params) works like this:
 
 ====================================================================================================================
+
 "Top-down" Solution
 
 1. return specific value for null node
@@ -16,6 +17,7 @@ Typically, we can solve a tree problem recursively from the top down or from the
 3. left_ans = top_down(root.left, left_params)      // left_params <-- root.val, params
 4. right_ans = top_down(root.right, right_params)   // right_params <-- root.val, params 
 5. return the answer if needed                      // answer <-- left_ans, right_ans
+
 ====================================================================================================================
 
 
@@ -34,12 +36,14 @@ answer = 0;
 "Bottom-up" is another recursion solution. In each recursion level, we will firstly call the functions recursively for all the children nodes and then come up with the answer according to the return values and the value of the root node itself. This process can be regarded as kind of postorder traversal. Typically, a "bottom-up" recursion function bottom_up(root) will be like this:
 
 ====================================================================================================================
+
 "Bottom-up" Solution
 
 1. return specific value for null node
 2. left_ans = bottom_up(root.left)          // call function recursively for left child
 3. right_ans = bottom_up(root.right)        // call function recursively for right child
 4. return answers                           // answer <-- left_ans, right_ans, root.val
+
 ====================================================================================================================
 
 EX: maximum_depth(root):
