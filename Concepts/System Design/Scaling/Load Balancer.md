@@ -21,3 +21,15 @@ Removes the need to install X.509 certificates on each server
 Layer 4 load balancer: Layer 4 load balancers look at info at the transport layer to decide how to distribute requests. Generally, this involves the source, destination IP addresses, and ports in the header, but not the contents of the packet.
 
 Layer 7 load balancer: Using layer 7 allows the load balancer to forward requests to different backend servers based on the content of the user’s request(header, message, cookie) . This mode of load balancing allows you to run multiple web application servers under the same domain and port.
+
+**Load Balancing Algorithms**
+The load balancing algorithm that is used determines which server, in a backend, will be selected when load balancing.
+Some of them are as follows: 
+
+- roundrobin: Round Robin selects servers in turns. This is the default algorithm.
+
+- leastconn: Selects the server with the least number of connections–it is recommended for longer sessions. Servers in the same backend are also rotated in a round-robin fashion.
+
+- source: This selects which server to use based on a hash of the source IP i.e. your user’s IP address. This is one method to ensure that a user will connect to the same server.
+
+- Sticky Sessions: Some applications require that a user continues to connect to the same backend server. This persistence is achieved through sticky sessions, using the appsession parameter in the backend that requires it.
