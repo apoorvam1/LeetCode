@@ -31,11 +31,11 @@
 
    - if(left == null || right == null) return left == right;
    
-5. If a problem involves traversing around a 2D grapth, it's better to define a Datastructure say 'Point' with rowNum and colNum.
+5. If a problem involves traversing around a 2D graph, it's better to define a Datastructure say 'Point' with rowNum and colNum.
 
 6. BFS vs DFS
 
    https://stackoverflow.com/questions/3332947/when-is-it-practical-to-use-depth-first-search-dfs-vs-breadth-first-search-bf
 
-
+7. Make sure the null check in Tree problem is robust. Don't call node.left or node.right or node.children without doing a null check.
 
