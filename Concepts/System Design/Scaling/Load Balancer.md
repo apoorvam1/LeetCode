@@ -34,6 +34,11 @@ Some of them are as follows:
 
 - Sticky Sessions: Some applications require that a user continues to connect to the same backend server. This persistence is achieved through sticky sessions, using the appsession parameter in the backend that requires it.
 
+**What if the load balancer is heavily loaded?**
+- Typically load balancers like HAProxy can handle 20k-60k active sessions per GB of RAM. If you run out of RAM, either upgrade it or build another load balancer fronted by a round-robin DNS system. 
+  - Round robin DNS publicizes multiple IP address for one domain. Keeps a cluster of 2 servers with 1 load balancer for each IP. This allows horizontal scaling
+- Routing or firewall tweaks to spread load to multiple load balancers. Have the front router or front firewall spread the incoming connections to several IP addresses
+
 **What issues could bringin in a load balancer cause?**
 - If it doesn't have enough resources, it can become a bottleneck
 - Increases system complexity
