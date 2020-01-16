@@ -3,7 +3,7 @@
 Load balancers distribute incoming client requests to computing resources such as application servers and databases. In each case, the load balancer returns the response from the computing resource to the appropriate client.
 
 **When do we need load balancers**
-- If the system needs to be reloable and there is a single point of failure
+- If the system needs to be reliable and there is a single point of failure
 - When requests per second is too high and we need more servers in the system
 
 Additional benefits include:
