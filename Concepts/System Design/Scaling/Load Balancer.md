@@ -39,7 +39,7 @@ Some of them are as follows:
   - Round robin DNS publicizes multiple IP address for one domain. Keeps a cluster of 2 servers with 1 load balancer for each IP. This allows horizontal scaling
 - Routing or firewall tweaks to spread load to multiple load balancers. Have the front router or front firewall spread the incoming connections to several IP addresses
 
-
+![DNS Round Robin](https://github.com/apoorvam1/LeetCode/blob/master/Concepts/System%20Design/Scaling/Screen%20Shot%202020-01-16%20at%2011.54.52%20AM.png)
 
 **What issues could bringin in a load balancer cause?**
 - If it doesn't have enough resources, it can become a bottleneck
