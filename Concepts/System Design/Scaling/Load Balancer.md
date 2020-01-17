@@ -45,3 +45,10 @@ Some of them are as follows:
 - If it doesn't have enough resources, it can become a bottleneck
 - Increases system complexity
 - Single load balancer is a single point of failure and bringing in more load balancer increases the complexity of the system
+
+
+REFERENCE: https://serverfault.com/questions/268597/what-is-a-typical-method-to-scale-out-a-software-load-balancer
+
+https://www.digitalocean.com/community/tutorials/an-introduction-to-haproxy-and-load-balancing-concepts
+
+
