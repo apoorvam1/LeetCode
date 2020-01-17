@@ -39,3 +39,5 @@
 
 7. Make sure the null check in Tree problem is robust. Don't call node.left or node.right or node.children without doing a null check.
 
+8. If a branch has to be removed from consideration in a tree (Based on some condition) skip making the recursive call for root.left or root.right. 
+
