@@ -36,7 +36,7 @@ Some of them are as follows:
 
 **What if the load balancer is heavily loaded?**
 - Typically load balancers like HAProxy can handle 20k-60k active sessions per GB of RAM. If you run out of RAM, either upgrade it or build another load balancer fronted by a round-robin DNS system. 
-  - Round robin DNS publicizes multiple IP address for one domain. Keeps a cluster of 2 servers with 1 load balancer for each IP. This allows horizontal scaling
+  - Round robin DNS publicizes multiple IP address for one domain. Keeps a cluster of 2 servers with 1 load balancer for each IP. This allows horizontal scaling.In its simplest implementation, round-robin DNS works by responding to DNS requests not only with a single potential IP address, but with a list of potential IP addresses corresponding to several servers that host identical services. The order in which IP addresses from the list are returned is the basis for the term round robin.
 - Routing or firewall tweaks to spread load to multiple load balancers. Have the front router or front firewall spread the incoming connections to several IP addresses
 
 ![DNS Round Robin](https://github.com/apoorvam1/LeetCode/blob/master/Concepts/System%20Design/Scaling/Screen%20Shot%202020-01-16%20at%2011.54.52%20AM.png)
