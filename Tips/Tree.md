@@ -1,3 +1,9 @@
+Key in solving Tree problem is, 
+pay complete attention to the question. Check if it a bst or has any specific criteria. 
+
+Treat every node as a root node and try to solve the problem for just that node. Solution should be applicable recursively to all it's children.
+
+
 1. Ancestor Problem
    - If the problem involves keeping track of ancestors create a child-parent map of each node and use it further
 
