@@ -13,6 +13,9 @@
 #     /     /       \                 \
 #    2     1         2                 3
 
+**Solution - DP**
+
+```
 class Solution {
     public int numTrees(int X) {
         int r[] = new int[X+1];
@@ -36,3 +39,33 @@ class Solution {
         return r[X];
     }
 }
+```
+
+
+** Solution - DP with Recursion**
+
+```
+class Solution {
+    public int numTrees(int n) {
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(0, 1);
+        map.put(1, 1);
+        return helper(n, map);
+    }
+    
+    private int helper(int n, Map<Integer, Integer> map) {
+        if(map.containsKey(n))
+            return map.get(n);
+        
+        int sum = 0;
+        
+        for(int i = 1; i <= n; i++) {
+            sum += helper(i-1, map) * helper(n-i, map);
+        }
+        
+        map.put(n, sum);
+        
+        return sum;
+    }
+}
+```
