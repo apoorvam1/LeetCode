@@ -1,4 +1,6 @@
 1. When the problem has 2 different flows based on a condition, try to use boolean variable.
     Ex: https://github.com/apoorvam1/LeetCode/blob/master/Easy/Arrays/Monotonic%20Array
     
+2. No matter how familiar you are with the solution, never try to remember it. Just solve it as any other problem.
+    
     
