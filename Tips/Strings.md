@@ -27,7 +27,7 @@
    - Arrays.sort(s.toCharArray())
    
 9. Convert char array back to String
-    new String(charArray);
+    - new String(charArray);
     
 10. Convert String number to Integer
-    Integer.parseInt(stringNum)
+    - Integer.parseInt(stringNum)
