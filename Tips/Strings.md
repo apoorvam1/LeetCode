@@ -12,6 +12,7 @@
 4. Get a hang of String manipulation functions
     - string.split("\\s");
     - string.substring(1) OR string.substring(2,8)
+    - char[] arr = s.toCharArray()
   
 5. if chars are repeating in the string try to find the pattern, xor may help
     - char res = 0; 
@@ -24,3 +25,9 @@
 
 8. Sort a String
    - Arrays.sort(s.toCharArray())
+   
+9. Convert char array back to String
+    new String(charArray);
+    
+10. Convert String number to Integer
+    Integer.parseInt(stringNum)
