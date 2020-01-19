@@ -47,3 +47,5 @@ Treat every node as a root node and try to solve the problem for just that node.
 
 8. If a branch has to be removed from consideration in a tree (Based on some condition) skip making the recursive call for root.left or root.right. 
 
+9. If a Tree problem invoves finding height but needs to return a TreeNode/boolean as result then create a global variable for the TreeNode or boolean and update it wherever needed.
+
