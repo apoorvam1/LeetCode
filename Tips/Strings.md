@@ -1,6 +1,6 @@
 1. Check if a letter is an alphabet
     - Character.isLetter(char)
-    - (char <= 'a' && char >= 'z') || (char <= 'A' && char >= 'Z')
+    - (char <= 'z' && char >= 'a') || (char <= 'Z' && char >= 'A')
   
 2. Get the position of an alphabet
     - int index = char - 'A'
