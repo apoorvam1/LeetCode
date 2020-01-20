@@ -29,6 +29,7 @@
     - string.split("\\\s");
     - string.substring(1) OR string.substring(2,8)
     - char[] arr = s.toCharArray()
+    - str.startsWith(anotherstr)
   
 8. if chars are repeating in the string try to find the pattern, xor may help
     - char res = 0; 
