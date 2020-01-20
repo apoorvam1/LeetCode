@@ -10,7 +10,7 @@
     - "AEIOUaeiou".indexOf(c) != -1
   
 4. Get a hang of String manipulation functions
-    - string.split("\\s");
+    - string.split("\\\s");
     - string.substring(1) OR string.substring(2,8)
     - char[] arr = s.toCharArray()
   
