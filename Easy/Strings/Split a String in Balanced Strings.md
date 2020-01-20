@@ -36,28 +36,25 @@ s[i] = 'L' or 'R'
 
 **Solution**
 
+```
 class Solution {
     public int balancedStringSplit(String s) {
-        if(s.length() % 2 != 0) return 0;
-        int rc = 0;
-        int lc = 0;
+        char[] arr = s.toCharArray();
+        int rcount = 0;
+        int lcount = 0;
         int res = 0;
         
-        char[] c = s.toCharArray();
-        
-        for(int i = 0; i < s.length(); i++) {
-            if(c[i]=='L') {
-                lc++;
+        for(int i = 0; i < arr.length; i++) {
+            if(arr[i] == 'R') {
+                rcount++;
             } else {
-                rc++;
+                lcount++;
             }
             
-            if(lc == rc) {
-                res++;
-                lc = 0;
-                rc = 0;
-            }
+            if(rcount == lcount) res++;
         }
+        
         return res;
     }
 }
+```
