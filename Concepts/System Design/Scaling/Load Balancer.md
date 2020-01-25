@@ -41,7 +41,7 @@ Some of them are as follows:
 
 ![DNS Round Robin](https://github.com/apoorvam1/LeetCode/blob/master/Concepts/System%20Design/Scaling/Screen%20Shot%202020-01-16%20at%2011.54.52%20AM.png)
 
-**What issues could bringin in a load balancer cause?**
+**What issues could bringing in a load balancer cause?**
 - If it doesn't have enough resources, it can become a bottleneck
 - Increases system complexity
 - Single load balancer is a single point of failure and bringing in more load balancer increases the complexity of the system
