@@ -32,7 +32,7 @@ Some of them are as follows:
 
 - source: This selects which server to use based on a hash of the source IP i.e. your user’s IP address. This is one method to ensure that a user will connect to the same server.
 
-- Sticky Sessions: Some applications require that a user continues to connect to the same backend server. This persistence is achieved through sticky sessions, using the appsession parameter in the backend that requires it.
+- Sticky Sessions: Some applications require that a user continues to connect to the same backend server. This persistence is achieved through sticky sessions, using the app session parameter in the backend that requires it.
 
 **What if the load balancer is heavily loaded?**
 - Typically load balancers like HAProxy can handle 20k-60k active sessions per GB of RAM. If you run out of RAM, either upgrade it or build another load balancer fronted by a round-robin DNS system. 
