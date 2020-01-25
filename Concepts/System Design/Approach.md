@@ -15,6 +15,7 @@
 5. What could be the acceptable latency?
 
 **II.Draw Diagram**
+
 First draw a diagram with components in mind. Then start visiting them and decide which componets which software solution.
 ex: SQL Server or NoSQL server, File Server or Object Store etc. 
 
