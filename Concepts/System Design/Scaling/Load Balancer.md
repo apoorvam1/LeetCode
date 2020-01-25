@@ -23,7 +23,7 @@ Layer 4 load balancer: Layer 4 load balancers look at info at the transport laye
 Layer 7 load balancer: Using layer 7 allows the load balancer to forward requests to different backend servers based on the content of the user’s request(header, message, cookie) . This mode of load balancing allows you to run multiple web application servers under the same domain and port.
 
 **Load Balancing Algorithms**
-The load balancing algorithm that is used determines which server, in a backend, will be selected when load balancing.
+The load balancing algorithm that is used determines which server in a backend will be selected when load balancing.
 Some of them are as follows: 
 
 - roundrobin: Round Robin selects servers in turns. This is the default algorithm.
