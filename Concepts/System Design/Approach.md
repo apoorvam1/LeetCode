@@ -16,8 +16,8 @@
 
 **II.Draw Diagram**
 
-First draw a diagram with components in mind. Then start visiting them and decide which componets which software solution.
-ex: SQL Server or NoSQL server, File Server or Object Store etc. 
+First draw a diagram with components in mind. Then start visiting them and map componets with software solution.
+ex:Communication Channel - REST/RPC, Dat Storage - SQL Server or NoSQL server, File Server or Object Store etc. 
 
 **III. Define details of components and Interaction between the components**
 
