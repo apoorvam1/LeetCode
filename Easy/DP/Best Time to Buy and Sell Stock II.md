@@ -28,12 +28,16 @@ class Solution {
         int profit = 0;
         
         for(int i = 0; i < a.length; i++) {
-            while(i < a.length - 1 && a[i+1] <= a[i]) i++;
+            // go ahead as long as the cur value is greater than the next
+            // we need to find min value to buy the stock
+            while(i+1 <= a.length - 1 &&  a[i] >= a[i+1]) i++;
             min = a[i];
             i++;
             
-            while(i < a.length - 1 && a[i+1] > a[i]) i++;
-            int localprofit = i < a.length ? a[i] - min: 0;
+            //go ahead as long as cur value is smaller than the next
+            // we need to find max value to sell stock
+            while(i+1 <= a.length - 1 && a[i] < a[i+1]) i++;
+            int localprofit = i <= a.length - 1 ? a[i] - min: 0;
             profit += localprofit;
         }
         return profit;
