@@ -15,6 +15,8 @@ What is a Thread?
 - Every thread gets its own stack, registers
  -Every thread has an execution context (CPU register values)  which it can use to resume its operation
  
+***
+
 **Inter thread communication and Inter process communication**
 
 http://stackoverflow.com/questions/2527847/java-inter-process-communication-and-inter-thread-communication
@@ -26,6 +28,8 @@ Inter thread communication
 Inter process communication
 - Processes can communicate with other processes through sockets, files, pipes, shared memory, semaphores
 
+***
+
 **Difference Between wait() and sleep()**
 - When a thread calls wait() it releases lock but sleep() doesn’t
 - wait() is used for inter-thread communication while sleep() is used to pause the execution
@@ -33,6 +37,8 @@ Inter process communication
 - wait() and notify() must happen within the synchronized block, but sleep() need not be
 - sleep() is for time-synchronization and wait() is for thread synchronization
 - wait() operates on Object and is defined in Object class and sleep() operates on current thread is defined in the Thread class
+
+***
 
 **Running Process In The Background**
 
@@ -63,11 +69,14 @@ Types of thread pools
   * Tasks are put in the blocking queue from where worker threads pickup the task
   * It provides inbuilt synchronization techniques to access the queue along with consumer-producer pattern.
   
-  
+***
+
 **Scheduler**
 
 In a single core CPU it can perform only operation at a given time. In a multicore CPU we can perform ‘number of core’ operations at the same time. 
 Thread Scheduler is responsible for CPU time share among the threads
+
+***
 
 **Race Condition**
 
@@ -97,8 +106,10 @@ What happens when two threads call getInstance() at the same time?
 - The critical section must be executed as an atomic instruction, i.e through thread synchronization.
 - It could be through Synchronized blocks, locks or using atomic variables. 
 
+***
 
 **Synchronization**
+
 Prevents a block of code executed by more than one thread at the same time. 
 
 Example of Synchronized method: 
@@ -126,7 +137,11 @@ JVM creates a lock object with one key to access the synchronized block. If the 
 - In a non-static method the current instance is used as the synchronization object. 
 - We can use an explicit synchronized object and synchronize a block of code using that object. 
 
+***
 
+**Deadlock**
+
+Deadlock is a situation where Thread T1 holds the key needed by T2 and T2 holds the key needed by T1
 
 
 
