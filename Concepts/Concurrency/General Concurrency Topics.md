@@ -62,4 +62,40 @@ Types of thread pools
 - Blocking Queue
   * Tasks are put in the blocking queue from where worker threads pickup the task
   * It provides inbuilt synchronization techniques to access the queue along with consumer-producer pattern.
+  
+  
+**Scheduler**
+In a single core CPU it can perform only operation at a given time. In a multicore CPU we can perform ‘number of core’ operations at the same time. 
+Thread Scheduler is responsible for CPU time share among the threads
+
+**Race Condition**
+When two different threads are trying to read and write same resource at the same time. A code section that leads to race conditions is called a critical section.
+
+Example of Race Condition through Singleton Pattern:
+
+```
+public class Singleton {
+	private Singleton instance  = null;
+	private Singleton() { }
+
+	public static Singleton getInstance() {
+		if(instance == null) {
+			instance = new Singleton();
+		}
+		return instance; 
+	}
+}
+```
+
+What happens when two threads call getInstance() at the same time? 
+
+*Preventing Race Condition*
+- The critical section must be executed as an atomic instruction, i.e through thread synchronization.
+- It could be through Synchronized blocks, locks or using atomic variables. 
+
+
+
+
+
+
 
