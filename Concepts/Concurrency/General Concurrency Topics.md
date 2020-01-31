@@ -91,8 +91,7 @@ public class Singleton {
 
 What happens when two threads call getInstance() at the same time? 
 
-![Race Condition] (https://github.com/apoorvam1/LeetCode/blob/master/Concepts/Concurrency/Screen%20Shot%202020-01-30%20at%2010.46.36%20PM.png)
-
+![Race Condition](https://github.com/apoorvam1/LeetCode/blob/master/Concepts/Concurrency/Screen%20Shot%202020-01-30%20at%2010.46.36%20PM.png)
 
 *Preventing Race Condition*
 - The critical section must be executed as an atomic instruction, i.e through thread synchronization.
