@@ -65,10 +65,12 @@ Types of thread pools
   
   
 **Scheduler**
+
 In a single core CPU it can perform only operation at a given time. In a multicore CPU we can perform ‘number of core’ operations at the same time. 
 Thread Scheduler is responsible for CPU time share among the threads
 
 **Race Condition**
+
 When two different threads are trying to read and write same resource at the same time. A code section that leads to race conditions is called a critical section.
 
 Example of Race Condition through Singleton Pattern:
@@ -88,6 +90,9 @@ public class Singleton {
 ```
 
 What happens when two threads call getInstance() at the same time? 
+
+![Race Condition] (https://github.com/apoorvam1/LeetCode/blob/master/Concepts/Concurrency/Screen%20Shot%202020-01-30%20at%2010.46.36%20PM.png)
+
 
 *Preventing Race Condition*
 - The critical section must be executed as an atomic instruction, i.e through thread synchronization.
