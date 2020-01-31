@@ -98,6 +98,35 @@ What happens when two threads call getInstance() at the same time?
 - It could be through Synchronized blocks, locks or using atomic variables. 
 
 
+**Synchronization**
+Prevents a block of code executed by more than one thread at the same time. 
+
+Example of Synchronized method: 
+
+```
+public class Singleton {
+	private Singleton instance  = null;
+	private Singleton() { }
+
+	public static synchronized Singleton getInstance() {
+		if(instance == null) {
+			instance = new Singleton();
+		}
+		return instance; 
+	}
+}
+```
+
+*How does Synchronized block work under the hood?*
+
+JVM creates a lock object with one key to access the synchronized block. If the lock object has the key with it it’ll give the key to the thread and thread can access the block. If another thread requests for the key to access the same code it has to wait. Once the tread is done executing the code it returns back the key. Sometimes this key is called monitor.
+
+* What are the ways of using the Synchronized Objects?*
+- In a static method, the lock is made on the class itself. 
+- In a non-static method the current instance is used as the synchronization object. 
+- We can use an explicit synchronized object and synchronize a block of code using that object. 
+
+
 
 
 
