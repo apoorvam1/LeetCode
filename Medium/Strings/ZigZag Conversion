@@ -66,3 +66,43 @@ class Solution {
         
     }
 }
+
+
+**Solution 2: With Lists**
+
+public String convert(String s, int numRows) {
+        if(s.isEmpty() || numRows == 1) return s;
+        StringBuilder[] sbarray = new StringBuilder[numRows];
+        for(int i = 0; i < numRows; i++) {
+            sbarray[i] = new StringBuilder();
+        }
+        int index = 0;
+        boolean forward = true;
+        
+        for(int i = 0; i < s.length(); i++) {
+            char cur = s.charAt(i);
+            if(forward) {
+                sbarray[index++].append(cur);
+                if(index == numRows) {
+                    forward = false;
+                    index = index-2;
+                }
+            } else {
+                sbarray[index--].append(cur);
+                if(index < 0) {
+                    index = 1;
+                    forward = true;
+                }
+            }
+        }
+        
+        return writeNewString(sbarray);
+    }
+    
+    private String writeNewString(StringBuilder[] sbarray) {
+        StringBuilder ret = new StringBuilder();
+        for(int i = 0; i < sbarray.length; i++) {
+            ret.append(sbarray[i]);
+        }
+        return ret.toString();
+    }
