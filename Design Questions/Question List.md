@@ -4,3 +4,8 @@ Write the code to answer the various queries. For example, list all HTTP request
 Interviewer changes the query structure frequently and you should answer how you are going to attack that particular query.
 In the end, after the discussion of the pros and cons of different approaches you need to code that.
 
+
+2. Design a phone contact system with web and app support - various use cases
+
+3. Design an Elevator
+
