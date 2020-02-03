@@ -22,6 +22,7 @@ Typically, we can solve a tree problem recursively from the top down or from the
 
 
 Ex: maximum_depth(root, depth):
+
 answer = 0;
 1. return if root is null
 2. if root is a leaf node:
@@ -33,7 +34,11 @@ answer = 0;
 
 "Bottom-up" Solution
 
-"Bottom-up" is another recursion solution. In each recursion level, we will firstly call the functions recursively for all the children nodes and then come up with the answer according to the return values and the value of the root node itself. This process can be regarded as kind of postorder traversal. Typically, a "bottom-up" recursion function bottom_up(root) will be like this:
+"Bottom-up" is another recursion solution. In each recursion level, we will firstly call the functions recursively for all the children nodes and then come up with the answer according to the return values and the value of the root node itself. This process can be regarded as kind of postorder traversal. 
+
+While solving problem with bottom up, think from a leaf node's perspective. What does that node needs to return to it's parent? 
+
+Typically, a "bottom-up" recursion function bottom_up(root) will be like this:
 
 ======================================================================================
 
