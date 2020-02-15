@@ -12,7 +12,7 @@ deQueue(): Delete an element from the circular queue. Return true if the operati
 isEmpty(): Checks whether the circular queue is empty or not.
 isFull(): Checks whether the circular queue is full or not.
  
-
+```
 Example:
 
 MyCircularQueue circularQueue = new MyCircularQueue(3); // set the size to be 3
@@ -25,7 +25,8 @@ circularQueue.isFull();  // return true
 circularQueue.deQueue();  // return true
 circularQueue.enQueue(4);  // return true
 circularQueue.Rear();  // return 4
- 
+```
+
 Note:
 
 All values will be in the range of [0, 1000].
@@ -33,6 +34,7 @@ The number of operations will be in the range of [1, 1000].
 Please do not use the built-in Queue library
 
 
+```
 class MyCircularQueue {
     int[] queue;
     int size = 0;
@@ -87,3 +89,4 @@ class MyCircularQueue {
         return size == queue.length;
     }
 }
+```
