@@ -47,7 +47,7 @@
 
 14. Using character as an index to an integer array (array[char]) gives the ascii index of that array. 
 
-15. str.chatAt(i) 
+15. str.charAt(i) 
 	- if stored in int var, gives the string's ith character's ascii value.
 	- if stored in char var, gives the string's ith character value.
     
