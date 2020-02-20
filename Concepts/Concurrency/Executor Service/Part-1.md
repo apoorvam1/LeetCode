@@ -39,3 +39,7 @@ public static class Task implements Runnable {
 Java will create new threads and execute the task with each of those as shown below: 
 ![Creating multiple threads](https://github.com/apoorvam1/LeetCode/blob/master/Concepts/Concurrency/Screen%20Shot%202020-02-20%20at%202.21.09%20PM.png)
 
+What if you need to run 1000 tasks? Will creating 1000 threads be feasibile? 
+- No! Thread creation operation itself is time consuming and 1 java thread corresponds to 1 OS threads. It's limited by the CPU cores. 
+
+Instead, what we need is a pool of threads that are created before hand. They pick up the tasks one after the other and execute. 
