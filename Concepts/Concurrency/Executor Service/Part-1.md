@@ -43,3 +43,25 @@ What if you need to run 1000 tasks? Will creating 1000 threads be feasibile?
 - No! Thread creation operation itself is time consuming and 1 java thread corresponds to 1 OS threads. It's limited by the CPU cores. 
 
 Instead, what we need is a pool of threads that are created before hand. They pick up the tasks one after the other and execute. 
+
+```
+public void static main(String[] args) {
+  ExecutorService service = Executors.newFixedThreadPool(10);
+  for(int i = 0; i < 10; i++) {
+    service.execute(new Task());
+  }
+  System.out.println("Printed from the main thread");
+}
+
+public static class Task implements Runnable {
+  @Override
+  public void run() {
+    System.out.println("Printed from the child thread");
+  }
+}
+```
+
+Here, at any point in time there are only 10 threads running. Any excess tasks are queued up in a blocking queue. Since multiple threads try to access tasks from the queue it has to be thread safe. Blocking queue serves this purpose. 
+
+
+
