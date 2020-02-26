@@ -1,12 +1,19 @@
 6 patterns to solve recursive problems
 
 1. Iteration - Iterate over and array or list using recursion
+    - We can replace the forloop with recursion
+    - Useful when accessing the last elements of DS
+    - Use stack of recursion instead
+    - This approach is rarely better than the iterative approach
+    
+  ```  
   Ex: Printing a list in reverse order
     public void printReverseList(Node head) {
         if(head == null) return;
         printReverseList(head.next);
         System.out.println(head.value);
     }
+  ```  
     
 2. Breaking into subproblems
   Ex: Fibonacci Series
