@@ -49,3 +49,4 @@ Treat every node as a root node and try to solve the problem for just that node.
 
 9. If a Tree problem invoves finding height but needs to return a TreeNode/boolean as result then create a global variable for the TreeNode or boolean and update it wherever needed.
 
+10. There is a common technique to solve graph coloring problem. Refer to this example to get familiarized with it. 
