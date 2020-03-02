@@ -1,9 +1,6 @@
 1. Declaring a Objects in Java. 
 
-Why are collections usually declared as 
-```
-Interface obj = new Class()?
-```
+Why are collections usually declared as `Interface obj = new Class()?`
 
 For ex, when should a linked list be declared as `List list = new LinkedList<>();` and when should be declared as LinkedList `list = new LinkedList()`?
 
