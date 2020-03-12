@@ -2,21 +2,25 @@
 
 **User/Client**
 
-1. Check can the user perform CRUD operation?
-2. Does user need and account or can be anonymous
-3. How many users? 
+1. Who is going to use it?
+2. How are they going to use it? Check can the user perform CRUD operation.
+   
+   If applicable note, Does user need and account or can be anonymous?
 
 **Service/Server**
 
 1. What all actions can service take on regular basis. Ex: Delete some expired records
-2. Frequency of service request
-3. What is the input, what is the output?
-4. Does it need HA?
-5. What could be the acceptable latency?
+2. What is the input, what is the output?
+
+**Numbers**
+1. How many users?
+2. How much data?
+2. Frequency of service request?
+4. read - write ratio
 
 **II.Draw Diagram**
 
-First draw a diagram with components in mind. Then start visiting them and map componets with software solution.
+First draw a diagram with components in mind. Then start visiting them and map components with software solution.
 ex: Communication Channel - REST/RPC, Dat Storage - SQL Server or NoSQL server, File Server or Object Store etc. 
 
 **III. Define details of components and Interaction between the components**
