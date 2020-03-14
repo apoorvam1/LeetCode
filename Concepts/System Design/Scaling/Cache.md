@@ -8,3 +8,7 @@ Ex:
 - More popular content
 
 2. When the traffic is uneven or spikes up unexpectedly
+
+3. When data to be accessed is going through multiple network hops, it could be cached at each levels 
+    
+   Ex: DNS lookup
