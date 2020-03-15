@@ -1,4 +1,4 @@
-If the trie has letters it could be creates as follows
+If the trie has letters it could be created as follows
 
 ```
 class Parent {
