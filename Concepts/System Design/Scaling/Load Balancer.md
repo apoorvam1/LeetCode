@@ -18,15 +18,19 @@ Removes the need to install X.509 certificates on each server
 - Can be implemented with software such as HAProxy, Nginx, Linux Virtual Server(LSV)
 
 **Types of Load Balancing**
+
 Layer 4 load balancer: Layer 4 load balancers look at info at the transport layer to decide how to distribute requests. Generally, this involves the source, destination IP addresses, and ports in the header, but not the contents of the packet.
 
 Layer 7 load balancer: Using layer 7 allows the load balancer to forward requests to different backend servers based on the content of the user’s request(header, message, cookie) . This mode of load balancing allows you to run multiple web application servers under the same domain and port.
 
 **Load Balancing Algorithms**
+
 The load balancing algorithm that is used determines which server in a backend will be selected when load balancing.
 Some of them are as follows: 
 
 - roundrobin: Round Robin selects servers in turns. This is the default algorithm.
+
+- weighted roundrobin: Provides a clean and effective way of focusing on fairly distributing the load amongst available resources. In a weighted round-robin algorithm, each server is assigned a value that signifies, relative to the other servers in the pool, how that server performs. This “weight” determines how many more (or fewer) requests are sent that server’s way; compared to the other servers on the pool
 
 - leastconn: Selects the server with the least number of connections–it is recommended for longer sessions. Servers in the same backend are also rotated in a round-robin fashion.
 
