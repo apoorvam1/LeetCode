@@ -17,6 +17,10 @@ Output: 3
 Explanation: The answer is "abc", with the length of 3. 
 ```
 
+**My Notes**: Notice, we dont use j-i value for the result. the result is hashset size.
+We use i to point to which character to remove next from the hashset. 
+
+
 ** Solution ** 
 
 ```
