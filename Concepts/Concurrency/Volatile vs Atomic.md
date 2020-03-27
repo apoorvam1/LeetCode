@@ -1,3 +1,4 @@
+Volatile is used to solve visibility problem.\
 A variable declared as volatile is immiditely flushed to RAM when it is written. Once it is flushed to RAM it becomes available for other threads as well.
 
 Ex:  
