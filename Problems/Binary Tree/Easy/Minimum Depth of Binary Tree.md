@@ -1,23 +1,27 @@
-# Given a binary tree, find its minimum depth.
+  Given a binary tree, find its minimum depth.
 
-# The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
+  The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
 
-# Note: A leaf is a node with no children.
+  Note: A leaf is a node with no children.
 
-# Example:
+  ```
+  Example:
 
-# Given binary tree [3,9,20,null,null,15,7],
+  Given binary tree [3,9,20,null,null,15,7],
 
-#    3
-#   / \
-#  9  20
-#    /  \
-#   15   7
+     3
+    / \
+   9  20
+     /  \
+    15   7
 
-# return its minimum depth = 2.
+  return its minimum depth = 2.
+```
+  My Notes: When some var is being updated in helper, make it a class level member
 
-# My Notes: When some var is being updated in helper, make it a class level member
+**Solution**
 
+```
 class Solution {
     int minDepth = Integer.MAX_VALUE;
     public int minDepth(TreeNode root) {
@@ -35,3 +39,4 @@ class Solution {
         minDepth(root.right, curMin + 1);
     }
 }
+```
