@@ -13,10 +13,14 @@ class Trie {
     public Trie() {
         root = new TrieNode();
         root.isWord = false;
-        // root.map = new HashMap<>();
     }
     
-    /** Inserts a word into the trie. */
+    /** Inserts a word into the trie. 
+    * Get the root
+    * iterate over each char in the word and every trie node together
+    * if it's a new char insert it
+    * move on to the next node
+    */
     public void insert(String word) {
         TrieNode temp = root;
         
@@ -31,7 +35,12 @@ class Trie {
         temp.isWord = true;
     }
     
-    /** Returns if the word is in the trie. */
+    /** Returns if the word is in the trie.
+    * Get the root
+    * iterate over each char in the word and every trie node together
+    * if the map doesn't have the char return false
+    * else return if the last char makes it a word
+    */
     public boolean search(String word) {
         TrieNode temp = root;
         
@@ -46,7 +55,12 @@ class Trie {
         return temp.isWord;
     }
     
-    /** Returns if there is any word in the trie that starts with the given prefix. */
+    /** Returns if there is any word in the trie that starts with the given prefix. 
+    * Get the root
+    * iterate over each char in the word and every trie node together
+    * if the map doesn't have the char return false
+    * else return true   
+    */
     public boolean startsWith(String prefix) {
                 TrieNode temp = root;
         
