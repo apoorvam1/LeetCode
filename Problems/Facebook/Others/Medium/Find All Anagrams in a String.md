@@ -32,6 +32,9 @@ The substring with start index = 2 is "ab", which is an anagram of "ab".
 
 **Solution**
 
+My Notes: Think simple. Starting from every character in s, construct char-map for length of p.length(). Compare this char-map with char-map of s
+
+
 ```
 class Solution {
     public List<Integer> findAnagrams(String s, String p) {
