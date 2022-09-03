@@ -3,6 +3,7 @@
 Create the Data Structure \
 Update is while making the recursive call \
 Note: It is not in the call signature
+Note: Use addAll function to add to the list. Because the return type is a LinkedList.
 
 ex: Adding all the TowerOfHanoi moves to the result LinkedList
 ```
