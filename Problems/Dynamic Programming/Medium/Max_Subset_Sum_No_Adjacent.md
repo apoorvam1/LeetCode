@@ -46,16 +46,13 @@ class Program {
     if(array.length == 1) return array[0];
     if(array.length == 2) return Math.max(array[0], array[1]);
 
-    // create a MaxSum array which contains maxSum we can acheive at each index
-    // keeping the constraint in mind
-    int maxSums[] = new int[array.length];
     // init
     int second = array[0];
     int first = Math.max(array[0],array[1]);
 
     for(int i = 2; i < array.length; i++) {
-      // Max at current index would be either same as the value at maxSums[i-1]
-      // or maxSum[i-2]+cur
+      // Max at current index would be either same as the value at first
+      // or second + cur
       int cur = Math.max(first, array[i] + second);
       second = first;
       first = cur;
