@@ -8,7 +8,7 @@ Implement a min heap that allows
 
 ## Solution:
 ### Below are the important things to notice regarding a min heap
-- Min heap is a complete binary tree. i.e, all the nodes are filled from left to right
+- Min heap is a complete binary tree. i.e, all the nodes are filled from left to right. Smallest element is at the peek.
 - Heap is not sorted but all the nodes are smaller than the children
 - Heap can be represented in an array with the below formula
   - Given a node at index `i` of the array, it's children are at `2i + 1` and `2i + 2`
