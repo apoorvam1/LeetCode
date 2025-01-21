@@ -28,7 +28,12 @@ ex: Communication Channel - REST/RPC, Dat Storage - SQL Server or NoSQL server, 
 1. If there is a web server, does it need a reverse proxy?
 2. If there is table, give an approx schema
 
-**IV. Scale the design**
+**IV. Find limitations and plan what needs to be improved/fixed
+1. Do you need a discovery service?
+2. Address how to handle SPOF?
+3. Is there a need of configuration service?
+
+**V. Scale the design**
 1. Load balancer
 2. Horizontal scaling
 3. Caching
