@@ -20,11 +20,13 @@ class ATM:
             self.bank_money[i] += bn
 
     def withdraw(self, amount: int) -> List[int]:
-        res = []
-
-        for curDenom, denomCount in zip(self.denom[::-1], self.bank_money[::-1]):
+        res = [0] * 5
+        
+        for i in range(4, -1, -1):
+            curDenom = self.denom[i]
+            denomCount = self.bank_money[i]
             need = min(denomCount, amount // curDenom)
-            res = [need] + res
+            res[i] = need
             amount -= (need * curDenom)
         if amount == 0:
             self.deposit(-x for x in res)
