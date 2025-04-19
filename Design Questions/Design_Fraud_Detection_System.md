@@ -47,7 +47,20 @@ class TransactionMonitor:
         return list(txn_deque)
 
 
-    def is_suspicious(self, user_id: str) -> bool:
-        pass
+        def is_suspicious(self, user_id: str) -> bool:
+        if user_id not in self.user_txns:
+            return False
+
+        txns = self.user_txns[user_id]
+        n = len(txns)
+
+        start = 0
+        for end in range(n):
+            while txns[end][0] - txns[start][0] > 60:
+                start += 1
+            if end - start + 1 > 3:
+                return True
+
+        return False
 
 ```
