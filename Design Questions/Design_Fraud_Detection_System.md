@@ -1,5 +1,6 @@
 
 Stream-based Suspicious Transaction Detector
+
 Problem Statement:
 Design a service that ingests a stream of user transactions and supports:
 add_transaction(user_id: str, amount: float, timestamp: int)
