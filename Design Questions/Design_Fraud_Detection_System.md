@@ -99,3 +99,14 @@ Scaling Considerations:
   - Another for transaction storage.
 
   - Another for alerting if suspicious behavior is detected.
+ 
+ 3. Suspicious Transaction Detection
+The is_suspicious function we discussed uses a sliding window, which works fine in a single machine but could become inefficient if the data grows large.
+
+Scaling Considerations:
+
+- Windowed Queries: In distributed systems, you'd want to use a technique like windowed joins or time-based queries to efficiently handle sliding windows across large data.
+
+For example, Apache Flink has built-in support for time windows and can perform windowed joins to detect fraud over time in a distributed fashion.
+
+- Event Aggregation: Instead of checking every single transaction individually, you can aggregate events over small time windows (like 1 minute, 5 minutes) and then perform fraud detection in batches. This reduces the amount of work done on each transaction and can be processed more efficiently in bulk.
