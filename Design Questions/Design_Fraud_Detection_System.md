@@ -110,3 +110,14 @@ Scaling Considerations:
 For example, Apache Flink has built-in support for time windows and can perform windowed joins to detect fraud over time in a distributed fashion.
 
 - Event Aggregation: Instead of checking every single transaction individually, you can aggregate events over small time windows (like 1 minute, 5 minutes) and then perform fraud detection in batches. This reduces the amount of work done on each transaction and can be processed more efficiently in bulk.
+
+4. Caching and Indexing
+To speed up access to recent transactions and avoid scanning large sets of data every time:
+
+Scaling Considerations:
+
+- In-memory Caching: Frequently accessed data (e.g., recent transactions or user risk scores) can be cached in-memory using Redis or Memcached.
+
+This can help speed up the get_recent_transactions method by caching the results for recently queried users.
+
+- Indexing: Proper indexing of data is crucial. In distributed databases (e.g., Cassandra, Elasticsearch), indexing on timestamps and user_id will significantly improve query performance for fetching transactions within a specific time range.
