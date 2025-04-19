@@ -65,3 +65,37 @@ class TransactionMonitor:
         return False
 
 ```
+
+## Scaling
+
+1. Data Storage and Ingestion
+In the current design, each user’s transactions are stored in a deque, which is fine for small-scale applications, but it doesn’t scale well when you have millions of users or billions of transactions.
+
+Scaling Considerations:
+
+- Distributed storage: You'd want to store the transactions in a distributed database or a distributed in-memory store like Redis, which can be partitioned by user_id (or hash key). This makes it easy to scale across multiple servers and handle high throughput.
+
+Redis supports sorted sets, which could help you store transactions with time-based ordering and query ranges efficiently.
+
+- Sharding: To handle millions or billions of users, you could partition the data (shard) based on user_id. Each shard can store the transactions of a subset of users and perform operations independently.
+
+2. Transaction Processing Pipeline
+The current solution processes transactions serially for each user (i.e., one-by-one), but this can be slow when dealing with high throughput.
+
+Scaling Considerations:
+
+- Stream Processing: Instead of processing each transaction in a blocking manner, you could set up a stream processing pipeline using tools like Apache Kafka, Apache Flink, or Apache Spark Streaming. These tools are designed for real-time data ingestion and processing at scale.
+
+  - Kafka can buffer and distribute transaction streams.
+
+  - Flink or Spark Streaming can process data in real time and allow you to apply fraud detection logic in parallel across multiple nodes.
+
+- Microservices Architecture: To scale the solution across distributed systems, you can decouple different parts of the system into separate microservices:
+
+  - One service for transaction ingestion.
+
+  - Another for fraud detection (which can scale horizontally).
+
+  - Another for transaction storage.
+
+  - Another for alerting if suspicious behavior is detected.
