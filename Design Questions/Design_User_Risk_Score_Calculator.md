@@ -67,3 +67,14 @@ For millions of users and high transaction throughput,
 - Also consider pruning inactive users to control memory growth
 - Snapshot state for fault-tolerance.
 
+### Followups:
+1. What happens if a Kafka broker goes down? \
+“Kafka is designed for fault tolerance. Each topic is split into partitions, and each partition has one leader and multiple replicas. If a Kafka broker hosting a partition leader goes down, Kafka will elect a new leader from the in-sync replicas on other brokers. Producers and consumers will automatically reroute to the new leader. Since Kafka persists all events to disk and replicates them across brokers, no data is lost — assuming replication is correctly configured (e.g., replication factor ≥ 2 and acks=all for producers). So recovery is seamless and fast, with built-in durability and high availability. The main concern becomes how quickly the leader election happens and whether consumer clients retry correctly with updated metadata.”
+
+2. How would you ensure message ordering per user? \
+“To ensure message ordering per user, I would use the user_id as the Kafka partition key when producing events. Kafka guarantees message order within a single partition, so all events for the same user will go to the same partition and be processed in the order they were produced.
+
+On the consumer side, if we use a framework like Flink or Kafka Streams, they can consume partitions in parallel while preserving partition-level order. This ensures that per-user ordering is maintained end-to-end — from producer, through Kafka, and into the processing job.”
+
+ 
+
