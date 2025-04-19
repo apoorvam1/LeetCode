@@ -1,4 +1,4 @@
-'''
+
 Stream-based Suspicious Transaction Detector
 Problem Statement:
 Design a service that ingests a stream of user transactions and supports:
@@ -12,7 +12,7 @@ get_recent_transactions(user_id: str, window_seconds: int)
 
 is_suspicious(user_id: str)
  → Returns True if there are more than 3 transactions within any 60-second sliding window.
-'''
+
 
 ```
 from collections import deque
