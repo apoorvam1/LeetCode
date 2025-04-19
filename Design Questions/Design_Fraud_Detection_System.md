@@ -121,3 +121,14 @@ Scaling Considerations:
 This can help speed up the get_recent_transactions method by caching the results for recently queried users.
 
 - Indexing: Proper indexing of data is crucial. In distributed databases (e.g., Cassandra, Elasticsearch), indexing on timestamps and user_id will significantly improve query performance for fetching transactions within a specific time range.
+
+5. Latency & Throughput
+Real-time latency is key here, especially since you're detecting fraud in milliseconds.
+
+Scaling Considerations:
+
+- Low-latency systems: Use distributed systems that are designed for low latency (like Flink, Kafka Streams, or AWS Kinesis). These systems allow you to process streams at scale with low-latency guarantees.
+
+- Event Time vs Processing Time: In a distributed system, the time at which an event was generated (event time) is often different from the time it’s processed (processing time). It’s important to handle watermarks (a concept from stream processing) to ensure that events out of order can still be processed correctly.
+
+- Horizontal Scaling: For each of these services (transaction ingestion, fraud detection, etc.), you should be able to horizontally scale the number of instances. You can scale based on throughput (number of transactions per second) and latency requirements.
