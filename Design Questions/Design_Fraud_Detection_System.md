@@ -30,11 +30,24 @@ class TransactionMonitor:
             self.user_txns[user_id] = deque()
 
         self.user_txns[user_id].append((timestamp, amount))
-```
 
 
-    def get_recent_transactions(self, user_id: str, window_seconds: int):
-        pass
+        def get_recent_transactions(self, user_id: str, window_seconds: int):
+        if user_id not in self.user_txns:
+            return []
+
+        now = int(time.time())
+        window_start = now - window_seconds
+        txn_deque = self.user_txns[user_id]
+
+        # Remove outdated transactions from the front
+        while txn_deque and txn_deque[0][0] < window_start:
+            txn_deque.popleft()
+
+        return list(txn_deque)
+
 
     def is_suspicious(self, user_id: str) -> bool:
         pass
+
+```
