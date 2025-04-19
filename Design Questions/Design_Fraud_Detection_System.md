@@ -132,3 +132,14 @@ Scaling Considerations:
 - Event Time vs Processing Time: In a distributed system, the time at which an event was generated (event time) is often different from the time it’s processed (processing time). It’s important to handle watermarks (a concept from stream processing) to ensure that events out of order can still be processed correctly.
 
 - Horizontal Scaling: For each of these services (transaction ingestion, fraud detection, etc.), you should be able to horizontally scale the number of instances. You can scale based on throughput (number of transactions per second) and latency requirements.
+
+6. Fault Tolerance & Reliability
+In production, we need to ensure that even if parts of the system fail, the service remains reliable.
+
+Scaling Considerations:
+
+- Replication: Use replication in your distributed data store to ensure that data is not lost in case of hardware failure. For example, Redis Cluster supports replication and automatic failover.
+
+- Event Replay: Implement event replay mechanisms (e.g., using Kafka’s replay capability) so that in case of failure, you can replay events to recover lost state or missed transactions.
+
+- Monitoring and Alerting: Set up real-time monitoring and alerting for transaction volumes, fraud detection outcomes, and service health (using tools like Prometheus, Grafana, or Datadog). This will help you detect issues early.
