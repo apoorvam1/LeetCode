@@ -67,6 +67,9 @@ For millions of users and high transaction throughput,
 - Also consider pruning inactive users to control memory growth
 - Snapshot state for fault-tolerance.
 
+<img width="1601" alt="Screen Shot 2025-04-20 at 11 10 16 PM" src="https://github.com/user-attachments/assets/ca2cf131-d49e-43a1-969b-762574425fc5" />
+
+
 ### Followups:
 1. What happens if a Kafka broker goes down? \
 “Kafka is designed for fault tolerance. Each topic is split into partitions, and each partition has one leader and multiple replicas. If a Kafka broker hosting a partition leader goes down, Kafka will elect a new leader from the in-sync replicas on other brokers. Producers and consumers will automatically reroute to the new leader. Since Kafka persists all events to disk and replicates them across brokers, no data is lost — assuming replication is correctly configured (e.g., replication factor ≥ 2 and acks=all for producers). So recovery is seamless and fast, with built-in durability and high availability. The main concern becomes how quickly the leader election happens and whether consumer clients retry correctly with updated metadata.”
