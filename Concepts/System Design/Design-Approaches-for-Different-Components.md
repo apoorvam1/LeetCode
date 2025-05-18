@@ -10,3 +10,6 @@
 - Databse: DB cache, Buffer, Key Val Store
 - Browser/Client Device
 - DNS
+
+## Microservices
+- Introduce a new microservice if the read-write frequency is different so that they can be easily scaled
