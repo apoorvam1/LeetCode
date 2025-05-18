@@ -11,3 +11,9 @@
 - It makes queriying with geospacially indexed data fast
 2. Introduce Elastic Search DB
   - Use Change Data Capture to capture all changes to the original DB comes to Elastic Search DB as well
+
+
+### Redis Cache along with DB 
+- It's a good idea to ensure the amount of data stored in cache isn't a lot
+- It can store only a subset of the actual data to handle very specific usecases
+- It can also store everything and CDC can sync the DB
