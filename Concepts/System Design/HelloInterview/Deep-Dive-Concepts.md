@@ -38,4 +38,8 @@
    - It's over HTTP and HTTPS
    - Browsers have built in support and handle reconnection
    - Just looks like a long runnign HTTP request
+  
+ ### Supporting Efficient search
+ - Use Elastic DB
+ - Use CDC to sync with DB
 
