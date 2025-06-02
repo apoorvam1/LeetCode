@@ -6,10 +6,14 @@
 - To handle this we introduce a queue. The data from cache is written to the queue.
   A consumer reads data from the queue and writes to the DB
 
-### Low Latency Solutions
 ## low latency when server needs to send continuous events
+### Option-1
 - Use Server send events
 - The server will maintain a list of clients and their connections
+### Option-2
+- Have cron job that queries DB and stores data in Redis
+- Users read data from cache
+- This solution is workable but very expensive due to a lot od DB queries
 
 ### Dealing with GeoSpacial Data
 1. Add postGIS extension to postgres
